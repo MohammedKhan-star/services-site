@@ -76,7 +76,7 @@ export default function ServicesPage() {
                 className={`pw-glass p-10 rounded-3xl shadow-xl ${plan.popular && "ring-2 ring-indigo-500"}`}
               >
                 <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                <p className="mt-4 text-4xl font-bold">₹{plan.price}</p>
+                <p className="mt-4 text-4xl font-bold">{plan.price}</p>
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-2">
