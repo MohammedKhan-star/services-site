@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Star, ShieldCheck, Rocket, Users } from "lucide-react";
+import { Check, ShieldCheck, Rocket, Users } from "lucide-react";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -9,7 +9,7 @@ export default function LandingPage() {
     <main className="min-h-screen bg-background text-foreground">
 
       {/* HERO SECTION */}
-      <section className="pw-gradient text-white py-24">
+      <section className="pw-gradient text-white py-28">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -17,12 +17,11 @@ export default function LandingPage() {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold"
           >
-            Professional Websites Starting at ₹5,000
+            ProjectWorks Web Agency
           </motion.h1>
 
           <p className="mt-6 text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
-            We build modern, fast & scalable websites that help businesses
-            attract customers and grow online.
+            High-conversion websites, SaaS platforms & scalable products for startups, founders & businesses.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -33,54 +32,33 @@ export default function LandingPage() {
               View Pricing
             </Link>
             <Link
-              href="https://wa.me/919542355897"
+              href="#contact"
               className="border border-white/40 px-8 py-4 rounded-xl font-semibold"
             >
-              WhatsApp Now
+              Contact Us
             </Link>
           </div>
         </div>
       </section>
 
-      {/* TRUST SECTION */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center">
-            Why Choose ProjectWorks?
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
-            {trust.map((item, i) => (
-              <div key={i} className="pw-glass p-6 rounded-3xl text-center">
-                <item.icon className="mx-auto text-indigo-600" size={36} />
-                <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-20 bg-muted/30">
+      {/* SERVICES SECTION */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center">
-            What We Build
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">Our Core Services</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
             {services.map((service, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -6 }}
-                className="pw-glass p-6 rounded-3xl shadow-xl"
+                whileHover={{ y: -8 }}
+                className="pw-glass p-8 rounded-3xl shadow-xl"
               >
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-4">{service.desc}</p>
-                <ul className="space-y-2 text-sm">
+                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+                <p className="text-muted-foreground mb-6">{service.desc}</p>
+                <ul className="space-y-3">
                   {service.points.map((p, idx) => (
-                    <li key={idx} className="flex gap-2">
-                      <Check className="text-green-500" size={16} /> {p}
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="text-green-400" size={18} /> {p}
                     </li>
                   ))}
                 </ul>
@@ -90,12 +68,48 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="py-20">
+      {/* CUSTOM PACKAGES / OFFERING SECTION */}
+      <section className="py-24 bg-indigo-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center">
-            Website Pricing
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-indigo-700">
+            Custom Packages & Recommendations
           </h2>
+          <p className="text-center text-muted-foreground mt-3 max-w-2xl mx-auto">
+            Not sure which plan fits your needs? We provide personalized packages based on your business goals, budget, and growth plans.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+            {customPackages.map((pack, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -6 }}
+                className="pw-glass p-6 rounded-3xl shadow-lg text-center"
+              >
+                <h3 className="text-xl font-semibold mb-3 text-indigo-600">{pack.title}</h3>
+                <p className="text-muted-foreground mb-4">{pack.desc}</p>
+                <ul className="space-y-2 text-sm">
+                  {pack.features.map((f, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="text-green-500" size={16} /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="https://wa.me/919542355897"
+                  className="block mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold"
+                >
+                  Discuss Your Package
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="py-24 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">Website Pricing</h2>
           <p className="text-center text-muted-foreground mt-3">
             Clear pricing. No hidden charges.
           </p>
@@ -158,7 +172,7 @@ export default function LandingPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-indigo-600 text-white text-center">
+      <section id="contact" className="py-24 bg-indigo-600 text-white text-center">
         <h2 className="text-3xl sm:text-4xl font-bold">
           Ready to Build Your Website?
         </h2>
@@ -176,45 +190,63 @@ export default function LandingPage() {
   );
 }
 
-/* TRUST */
-const trust = [
-  {
-    icon: ShieldCheck,
-    title: "Trusted & Secure",
-    desc: "Professional development with best security practices.",
-  },
-  {
-    icon: Rocket,
-    title: "Fast Delivery",
-    desc: "Quick turnaround without compromising quality.",
-  },
-  {
-    icon: Users,
-    title: "Client Focused",
-    desc: "We build exactly what your business needs.",
-  },
-];
-
-/* SERVICES */
+/* SERVICES DATA */
 const services = [
   {
-    title: "Static & Business Websites",
-    desc: "Professional websites for individuals and small businesses.",
-    points: ["Mobile Responsive", "SEO Ready", "Fast Loading"],
+    title: "Business Websites & Landing Pages",
+    desc: "High‑conversion, SEO‑optimized business websites designed to generate real leads and sales.",
+    points: [
+      "Custom UI/UX (Figma → Code)",
+      "SEO + Google Indexing",
+      "Fast Performance (Core Web Vitals)",
+      "WhatsApp & Contact Form Leads",
+      "Mobile‑First Responsive Design",
+    ],
   },
   {
-    title: "Dynamic & CMS Websites",
-    desc: "Editable websites with admin panel.",
-    points: ["Admin Dashboard", "Lead Forms", "Analytics"],
+    title: "E‑Commerce Applications",
+    desc: "Scalable MERN & Next.js e‑commerce platforms built for real‑world businesses.",
+    points: [
+      "Product & Order Management",
+      "Cart, Checkout & Payments",
+      "Admin Dashboard",
+      "Authentication & Security",
+      "Deployment + Domain Setup",
+    ],
   },
   {
-    title: "Full-Stack Applications",
-    desc: "Advanced MERN & Next.js solutions.",
-    points: ["Authentication", "APIs", "Scalable Design"],
+    title: "LMS, SaaS & Full‑Stack Apps",
+    desc: "Advanced platforms for startups, creators, and growing companies.",
+    points: [
+      "Role‑Based Authentication",
+      "Dashboards & Analytics",
+      "API Integrations",
+      "Cloud Deployment",
+      "Scalable Architecture",
+    ],
   },
 ];
 
-/* PRICING */
+/* CUSTOM PACKAGES DATA */
+const customPackages = [
+  {
+    title: "Startup Package",
+    desc: "Perfect for small businesses or first-time online presence.",
+    features: ["Custom Design Consultation", "Basic SEO & Analytics", "Responsive Mobile Layouts"],
+  },
+  {
+    title: "Growth Package",
+    desc: "Ideal for growing companies looking to scale online.",
+    features: ["E-commerce Integration", "Email & Contact Forms", "Performance Optimization"],
+  },
+  {
+    title: "Enterprise Package",
+    desc: "Advanced solution for startups & SaaS platforms with custom needs.",
+    features: ["Full-Stack Application", "Payment Gateway & APIs", "Cloud Deployment & Scalability"],
+  },
+];
+
+/* PRICING DATA */
 const pricing = [
   {
     type: "Static Website",
@@ -251,5 +283,24 @@ const pricing = [
     price: "1,00,000",
     marketPrice: "1,80,000",
     bestFor: "Startups & SaaS",
+  },
+];
+
+/* TRUST DATA */
+const trust = [
+  {
+    icon: ShieldCheck,
+    title: "Trusted & Secure",
+    desc: "Professional development with best security practices.",
+  },
+  {
+    icon: Rocket,
+    title: "Fast Delivery",
+    desc: "Quick turnaround without compromising quality.",
+  },
+  {
+    icon: Users,
+    title: "Client Focused",
+    desc: "We build exactly what your business needs.",
   },
 ];
