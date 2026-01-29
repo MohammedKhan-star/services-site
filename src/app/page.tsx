@@ -1,27 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, ShieldCheck, Rocket, Users } from "lucide-react";
 import Link from "next/link";
 
-export default function ServicesPage() {
+export default function LandingPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* HERO */}
-      <section className="pw-gradient text-white py-28">
+
+      {/* HERO SECTION */}
+      <section className="pw-gradient text-white py-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold"
           >
-            ProjectWorks Web Agency
+            Professional Websites Starting at ₹5,000
           </motion.h1>
-          <p className="mt-6 text-xl text-white/90 max-w-3xl mx-auto">
-            High-conversion websites, SaaS platforms & scalable products for startups, founders & businesses.
+
+          <p className="mt-6 text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
+            We build modern, fast & scalable websites that help businesses
+            attract customers and grow online.
           </p>
-          <div className="mt-10 flex justify-center gap-6">
+
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="#pricing"
               className="bg-white text-black px-8 py-4 rounded-xl font-semibold shadow-lg"
@@ -29,32 +33,54 @@ export default function ServicesPage() {
               View Pricing
             </Link>
             <Link
-              href="#contact"
+              href="https://wa.me/919542355897"
               className="border border-white/40 px-8 py-4 rounded-xl font-semibold"
             >
-              Contact Us
+              WhatsApp Now
             </Link>
           </div>
         </div>
       </section>
 
+      {/* TRUST SECTION */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">
+            Why Choose ProjectWorks?
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+            {trust.map((item, i) => (
+              <div key={i} className="pw-glass p-6 rounded-3xl text-center">
+                <item.icon className="mx-auto text-indigo-600" size={36} />
+                <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+                <p className="mt-2 text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
-      <section className="py-24">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Our Core Services</h2>
-          <div className="grid md:grid-cols-3 gap-10 mt-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">
+            What We Build
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
             {services.map((service, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -8 }}
-                className="pw-glass p-8 rounded-3xl shadow-xl"
+                whileHover={{ y: -6 }}
+                className="pw-glass p-6 rounded-3xl shadow-xl"
               >
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.desc}</p>
-                <ul className="space-y-3">
+                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <p className="text-muted-foreground mb-4">{service.desc}</p>
+                <ul className="space-y-2 text-sm">
                   {service.points.map((p, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="text-green-400" size={18} /> {p}
+                    <li key={idx} className="flex gap-2">
+                      <Check className="text-green-500" size={16} /> {p}
                     </li>
                   ))}
                 </ul>
@@ -65,141 +91,165 @@ export default function ServicesPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-24 bg-muted/30">
+      <section id="pricing" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Pricing Plans</h2>
-          <div className="grid md:grid-cols-3 gap-10 mt-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">
+            Website Pricing
+          </h2>
+          <p className="text-center text-muted-foreground mt-3">
+            Clear pricing. No hidden charges.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-14">
             {pricing.map((plan, i) => (
-              <motion.div
+              <div
                 key={i}
-                whileHover={{ scale: 1.05 }}
-                className={`pw-glass p-10 rounded-3xl shadow-xl ${plan.popular && "ring-2 ring-indigo-500"}`}
+                className={`pw-glass p-6 rounded-3xl text-center ${
+                  plan.popular && "ring-2 ring-indigo-500"
+                }`}
               >
-                <h3 className="text-2xl font-semibold">{plan.name}</h3>
-                <p className="mt-4 text-4xl font-bold">{plan.price}</p>
-                <ul className="mt-6 space-y-3">
-                  {plan.features.map((f, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Star className="text-yellow-400" size={18} /> {f}
-                    </li>
-                  ))}
-                </ul>
+                {plan.popular && (
+                  <span className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full">
+                    Most Popular
+                  </span>
+                )}
+
+                <p className="mt-3 text-sm uppercase text-muted-foreground">
+                  {plan.type}
+                </p>
+
+                <h3 className="text-xl font-semibold mt-2">{plan.name}</h3>
+
+                {/* Market Price */}
+                {plan.marketPrice && (
+                  <p className="mt-4 text-sm text-muted-foreground line-through">
+                    ₹{plan.marketPrice}
+                  </p>
+                )}
+
+                {/* Actual Price */}
+                <p className="mt-1 text-3xl font-bold text-indigo-600">
+                  ₹{plan.price}
+                </p>
+
+                {/* Save Amount */}
+                {plan.marketPrice && (
+                  <p className="text-sm text-green-600 mt-1 font-medium">
+                    You Save: ₹
+                    {parseInt(plan.marketPrice.replace(/\D/g, '')) -
+                      parseInt(plan.price.replace(/\D/g, ''))}
+                  </p>
+                )}
+
+                <p className="text-sm text-green-600 mt-2">
+                  Best for: {plan.bestFor}
+                </p>
+
                 <Link
-                  href="#contact"
-                  className="block mt-8 text-center bg-indigo-600 text-white py-3 rounded-xl font-semibold"
+                  href="https://wa.me/919542355897"
+                  className="block mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold"
                 >
-                  Get Started
+                  Get This Plan
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="py-24">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center">Let’s Build Your Product</h2>
-          <form className="mt-12 pw-glass p-10 rounded-3xl grid gap-6">
-            <input placeholder="Name" className="px-4 py-3 rounded-xl bg-transparent border" />
-            <input placeholder="Email" className="px-4 py-3 rounded-xl bg-transparent border" />
-            <textarea placeholder="Project Details" rows={5} className="px-4 py-3 rounded-xl bg-transparent border" />
-            <button className="bg-indigo-600 text-white py-4 rounded-xl font-semibold">
-              Send Message
-            </button>
-          </form>
-        </div>
+      {/* FINAL CTA */}
+      <section className="py-24 bg-indigo-600 text-white text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold">
+          Ready to Build Your Website?
+        </h2>
+        <p className="mt-4 text-white/90">
+          Talk to us today and get a free consultation.
+        </p>
+        <Link
+          href="https://wa.me/919542355897"
+          className="inline-block mt-8 bg-white text-indigo-600 px-10 py-4 rounded-xl font-semibold shadow-lg"
+        >
+          Chat on WhatsApp
+        </Link>
       </section>
-
-      {/* WHATSAPP FLOAT */}
-      <Link
-        href="https://wa.me/919542355897"
-        className="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-xl"
-      >
-        WhatsApp
-      </Link>
     </main>
   );
 }
 
-const services = [
+/* TRUST */
+const trust = [
   {
-    title: "Business Websites & Landing Pages",
-    desc: "High‑conversion, SEO‑optimized business websites designed to generate real leads and sales.",
-    points: [
-      "Custom UI/UX (Figma → Code)",
-      "SEO + Google Indexing",
-      "Fast Performance (Core Web Vitals)",
-      "WhatsApp & Contact Form Leads",
-      "Mobile‑First Responsive Design",
-    ],
+    icon: ShieldCheck,
+    title: "Trusted & Secure",
+    desc: "Professional development with best security practices.",
   },
   {
-    title: "E‑Commerce Applications",
-    desc: "Scalable MERN & Next.js e‑commerce platforms built for real‑world businesses.",
-    points: [
-      "Product & Order Management",
-      "Cart, Checkout & Payments",
-      "Admin Dashboard",
-      "Authentication & Security",
-      "Deployment + Domain Setup",
-    ],
+    icon: Rocket,
+    title: "Fast Delivery",
+    desc: "Quick turnaround without compromising quality.",
   },
   {
-    title: "LMS, SaaS & Full‑Stack Apps",
-    desc: "Advanced platforms for startups, creators, and growing companies.",
-    points: [
-      "Role‑Based Authentication",
-      "Dashboards & Analytics",
-      "API Integrations",
-      "Cloud Deployment",
-      "Scalable Architecture",
-    ],
+    icon: Users,
+    title: "Client Focused",
+    desc: "We build exactly what your business needs.",
   },
 ];
 
+/* SERVICES */
+const services = [
+  {
+    title: "Static & Business Websites",
+    desc: "Professional websites for individuals and small businesses.",
+    points: ["Mobile Responsive", "SEO Ready", "Fast Loading"],
+  },
+  {
+    title: "Dynamic & CMS Websites",
+    desc: "Editable websites with admin panel.",
+    points: ["Admin Dashboard", "Lead Forms", "Analytics"],
+  },
+  {
+    title: "Full-Stack Applications",
+    desc: "Advanced MERN & Next.js solutions.",
+    points: ["Authentication", "APIs", "Scalable Design"],
+  },
+];
+
+/* PRICING */
 const pricing = [
   {
+    type: "Static Website",
+    name: "Basic",
+    price: "5,000",
+    marketPrice: "8,000",
+    bestFor: "Portfolios",
+  },
+  {
+    type: "Dynamic Website",
     name: "Starter",
-    price: "₹19,999",
-    features: [
-      "1‑Page Business / Portfolio Website",
-      "Responsive Design",
-      "WhatsApp Lead Button",
-      "Basic SEO Setup",
-      "Free Domain (1 Year) – ₹1,000 value",
-      "Free Hosting Setup",
-      "Market Price: ₹30,000",
-      "Limited‑Time Discount Applied",
-    ],
+    price: "12,000",
+    marketPrice: "18,000",
+    bestFor: "Small Businesses",
   },
   {
-    name: "Pro",
-    price: "₹49,999",
+    type: "Business Website",
+    name: "Business Pro",
+    price: "25,000",
+    marketPrice: "35,000",
+    bestFor: "Growing Companies",
     popular: true,
-    features: [
-      "Multi‑Page Business Website",
-      "Advanced Animations (Framer Motion)",
-      "SEO + Google Search Console",
-      "Contact Form + Email Integration",
-      "Free Domain (1 Year) – ₹1,000 value",
-      "Free Hosting & Deployment",
-      "Market Price: ₹75,000",
-      "Save ₹25,000 (Discounted)",
-    ],
   },
   {
+    type: "Full-Stack Website",
+    name: "Full-Stack App",
+    price: "45,000",
+    marketPrice: "70,000",
+    bestFor: "Advanced Needs",
+  },
+  {
+    type: "Enterprise App",
     name: "Enterprise",
-    price: "₹1,20,000+",
-    features: [
-      "Full‑Stack Web App (MERN / Next.js)",
-      "Admin Dashboard",
-      "Authentication & Roles",
-      "Payment Gateway Integration",
-      "SEO, Performance & Security",
-      "Free Domain + Hosting (1 Year)",
-      "Market Price: ₹1.8L – ₹2.5L",
-      "Custom Quote with Discount",
-    ],
+    price: "1,00,000",
+    marketPrice: "1,80,000",
+    bestFor: "Startups & SaaS",
   },
 ];
