@@ -279,7 +279,7 @@ export default function LandingPage() {
         <h2 className="text-4xl font-bold mb-4">Talk to Us on WhatsApp</h2>
         <p className="mb-4">Fast reply • Real developer • No sales pressure</p>
         <p className="flex justify-center gap-2 mb-6">
-          <Mail /> mohammedkhandeveloper@gmail.com
+          <Mail /> contact.projectworksstudio@gmail.com
         </p>
         <Link
           href="https://wa.me/919542355897"
