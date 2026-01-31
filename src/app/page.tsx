@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Check,
   Mail,
@@ -23,58 +23,67 @@ import {
 import { motion } from "framer-motion";
 
 /* ================= NAVBAR ================= */
-
 function Navbar() {
   const [open, setOpen] = useState(false);
+
+  // Smooth scroll
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false);
+  };
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          {/* Logo Icon */}
-          <div >
-            <Image
-              src="/logo/logo.png"
-              alt="ProjectWorksStudio Logo"
-              width={40}
-              height={40}
-              className="rounded-full object-cover"
-            />
-          </div>
-
-          {/* Logo Text */}
-          <span className="text-2xl font-extrabold text-indigo-600">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 md:gap-3">
+          <Image
+            src="/logo/logo.png"
+            alt="ProjectWorksStudio Logo"
+            width={40}
+            height={40}
+            className="rounded-full object-cover"
+          />
+          <span className="hidden md:inline text-2xl font-extrabold text-indigo-600">
             ProjectWorks<span className="text-gray-900">Studio</span>
           </span>
         </Link>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 font-medium">
-          {["about","services", "project", "pricing", "contact"].map((id) => (
-            <Link key={id} href={`#${id}`} className="hover:text-indigo-600">
+          {["about", "services", "project", "pricing", "contact"].map((id) => (
+            <button
+              key={id}
+              onClick={() => handleScroll(id)}
+              className="hover:text-indigo-600"
+            >
               {id.charAt(0).toUpperCase() + id.slice(1)}
-            </Link>
+            </button>
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-3">
-          <Link
-            href="https://wa.me/919542355897"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm"
-          >
-            WhatsApp
-          </Link>
           <button onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
+            {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </nav>
 
+      {/* Mobile Dropdown */}
       {open && (
-        <div className="md:hidden bg-white border-t py-6 flex flex-col items-center gap-4">
-          {["about","services", "project", "pricing", "contact"].map((id) => (
-            <Link key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+        <div className="md:hidden bg-white border-t py-6 flex flex-col items-center gap-4 transition-all duration-300">
+          {["about", "services", "project", "pricing", "contact"].map((id) => (
+            <button
+              key={id}
+              onClick={() => handleScroll(id)}
+              className="text-lg font-medium hover:text-indigo-600"
+            >
               {id.charAt(0).toUpperCase() + id.slice(1)}
-            </Link>
+            </button>
           ))}
         </div>
       )}
@@ -89,12 +98,12 @@ const roles = [
   "End-to-end development: frontend, backend, APIs, and deployment",
   "Specialized in MERN stack, Next.js, and OpenAI API integrations",
   "Passionate about clean code, responsive design, and intuitive UX",
-   "“We can build, deploy, and maintain real production applications."
+  "We can build, deploy, and maintain real production applications.",
 ];
 
 const SERVICES = [
   { title: "Portfolio Websites", icon: <Store />, desc: "Personal & professional portfolios", points: ["Custom UI", "Resume", "Contact Form"] },
-  { title: "Business Websites", icon: <Users />, desc: "High-conversion business sites", points: ["SEO", "Fast", "WhatsApp"] },
+  { title: "Business Websites", icon: <Users />, desc: "High-conversion business sites", points: ["SEO", "Fast"] },
   { title: "Education Websites", icon: <GraduationCap />, desc: "Schools & institutes", points: ["Admissions", "Courses", "Dashboard"] },
   { title: "Food Websites", icon: <Utensils />, desc: "Restaurants & cafes", points: ["Menu", "Orders", "Booking"] },
   { title: "E-Commerce", icon: <ShoppingCart />, desc: "Online stores", points: ["Payments", "Admin", "Products"] },
@@ -126,7 +135,6 @@ const DOMAINS = [
 ];
 
 /* ================= PAGE ================= */
-
 export default function LandingPage() {
   const [text, setText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
@@ -134,7 +142,7 @@ export default function LandingPage() {
   const [isPaused, setIsPaused] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-   useEffect(() => {
+  useEffect(() => {
     if (isPaused) return;
 
     timeoutRef.current = setTimeout(() => {
@@ -172,134 +180,108 @@ export default function LandingPage() {
         <p className="mt-6 text-lg">
           Launch your website in <b>7–10 days</b>
         </p>
+
         {/* Typing effect */}
-      <motion.div
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        className="mt-6 h-14 flex items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-      >
-    <p className="text-lg md:text-2xl font-medium
-      bg-gradient-to-r from-white via-cyan-200 to-indigo-100
-      bg-clip-text text-transparent
-      drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]">
-        {text}
-              <span className="ml-1 animate-blink">|</span>
-            </p>
-      </motion.div>
+        <motion.div
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="mt-6 h-14 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <p className="text-lg md:text-2xl font-medium
+            bg-gradient-to-r from-white via-cyan-200 to-indigo-100
+            bg-clip-text text-transparent
+            drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]">
+            {text}
+            <span className="ml-1 animate-blink">|</span>
+          </p>
+        </motion.div>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="#pricing" className="bg-white text-indigo-700 px-8 py-3 rounded-xl font-semibold">
             View Pricing
           </Link>
-          <Link href="#portfolio" className="bg-indigo-700 px-8 py-3 rounded-xl">
+          <Link href="#project" className="bg-indigo-700 px-8 py-3 rounded-xl">
             Project Works
           </Link>
           <Link href="#contact" className="border border-white px-8 py-3 rounded-xl">
             Free Proposal
           </Link>
         </div>
-        
       </section>
+
       {/* ABOUT */}
-{/* ABOUT */}
-<section id="about" className="py-28 bg-white">
-  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
-
-    {/* TEXT */}
-    <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-600">
-        About Us
-      </h2>
-
-      <p className="text-slate-700 leading-relaxed mb-5">
-        ProjectWorksStudio is a founder-led web development studio run by
-        <span className="font-semibold text-slate-900"> Mohammed Khan</span>,
-        a full-stack web developer focused on building reliable,
-        production-ready web applications for businesses and startups.
-      </p>
-
-      <p className="text-slate-700 leading-relaxed mb-5">
-        The goal is simple: design and develop websites and applications
-        that are fast, scalable, and easy to maintain — without unnecessary
-        complexity or overengineering.
-      </p>
-
-      <p className="text-slate-700 leading-relaxed mb-6">
-        Every project is handled end-to-end, from planning and UI design
-        to development, deployment, and optimization, ensuring long-term
-        value and real business results.
-      </p>
-
-      <div className="flex flex-wrap gap-3">
-        {[
-          "MERN Stack",
-          "Next.js",
-          "Production Deployments",
-          "Clean Architecture",
-          "Long-Term Support",
-        ].map((tag) => (
-          <span
-            key={tag}
-            className="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm font-medium"
+      <section id="about" className="py-28 bg-white px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-600">
+              About Us
+            </h2>
 
-    {/* SIDE CARD */}
-    <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="bg-gradient-to-br from-indigo-600 via-purple-500 to-cyan-400
-                 rounded-3xl p-10 text-white shadow-xl"
-    >
-      <h3 className="text-2xl font-bold mb-6">
-        How We Work
-      </h3>
+            <p className="text-slate-700 leading-relaxed mb-5">
+              ProjectWorksStudio is a founder-led web development studio run by
+              <span className="font-semibold text-slate-900"> Mohammed Khan</span>,
+              a full-stack web developer focused on building reliable,
+              production-ready web applications for businesses and startups.
+            </p>
 
-      <ul className="space-y-4 text-sm md:text-base">
-        <li className="flex gap-3 items-start">
-          <Check className="text-emerald-300 mt-1" />
-          <span>Clear planning before writing a single line of code</span>
-        </li>
-        <li className="flex gap-3 items-start">
-          <Check className="text-emerald-300 mt-1" />
-          <span>Clean, scalable code that’s easy to extend</span>
-        </li>
-        <li className="flex gap-3 items-start">
-          <Check className="text-emerald-300 mt-1" />
-          <span>Performance, SEO, and responsiveness by default</span>
-        </li>
-        <li className="flex gap-3 items-start">
-          <Check className="text-emerald-300 mt-1" />
-          <span>Direct communication — no middlemen, no delays</span>
-        </li>
-      </ul>
-    </motion.div>
+            <p className="text-slate-700 leading-relaxed mb-5">
+              The goal is simple: design and develop websites and applications
+              that are fast, scalable, and easy to maintain — without unnecessary
+              complexity or overengineering.
+            </p>
 
-  </div>
-</section>
+            <p className="text-slate-700 leading-relaxed mb-6">
+              Every project is handled end-to-end, from planning and UI design
+              to development, deployment, and optimization, ensuring long-term
+              value and real business results.
+            </p>
 
+            <div className="flex flex-wrap gap-3">
+              {["MERN Stack", "Next.js", "Production Deployments", "Clean Architecture", "Long-Term Support"].map((tag) => (
+                <span key={tag} className="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-indigo-600 via-purple-500 to-cyan-400
+                       rounded-3xl p-10 text-white shadow-xl"
+          >
+            <h3 className="text-2xl font-bold mb-6">
+              How We Work
+            </h3>
+
+            <ul className="space-y-4 text-sm md:text-base">
+              {["Clear planning before writing a single line of code", "Clean, scalable code that’s easy to extend", "Performance, SEO, and responsiveness by default", "Direct communication — no middlemen, no delays"].map((item, idx) => (
+                <li key={idx} className="flex gap-3 items-start">
+                  <Check className="text-emerald-300 mt-1" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
 
       {/* SERVICES */}
       <section id="services" className="py-24 max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our Services
         </h2>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((s, i) => (
             <motion.div key={i} whileHover={{ y: -6 }} className="bg-white p-8 rounded-3xl shadow">
@@ -318,7 +300,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PORTFOLIO */}
+      {/* PROJECTS */}
       <section id="project" className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -338,12 +320,7 @@ export default function LandingPage() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-4 bg-indigo-600 text-white py-2 rounded-xl text-center"
-                  >
+                  <a href={p.live} target="_blank" rel="noopener noreferrer" className="block mt-4 bg-indigo-600 text-white py-2 rounded-xl text-center">
                     View Live
                   </a>
                 </div>
@@ -351,27 +328,14 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
-      
-
-              <div className="text-center mt-12">
-              <Link
-                href="https://www.mohammedkhan.dev/"
-                className="bg-indigo-600 text-white px-6 py-3 rounded-lg inline-block"
-              >
-                View Portfolio
-              </Link>
-
-          </div>
-            
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-24">
+      <section id="pricing" className="py-24 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-indigo-600">
           Pricing
         </h2>
-
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-6 px-6">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {PRICING.map((p, i) => (
             <div key={i} className={`bg-white p-6 rounded-3xl shadow text-center ${p.popular ? "ring-2 ring-indigo-500" : ""}`}>
               <h3 className="font-medium">{p.name}</h3>
@@ -382,8 +346,8 @@ export default function LandingPage() {
       </section>
 
       {/* DOMAINS */}
-      <section className="py-24 bg-slate-100">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="py-24 bg-slate-100 px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-indigo-600 mb-10">
             Domain Pricing
           </h2>
@@ -399,8 +363,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* CONTACT */}
       <section id="contact" className="py-28 text-center px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-600">
           Get Free Proposal PDF
@@ -413,10 +375,8 @@ export default function LandingPage() {
       </section>
 
       {/* FOOTER */}
-     {/* FOOTER */}
       <footer className="bg-black text-gray-300 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-6 grid gap-12 md:grid-cols-3 text-center md:text-left">
-          
           <div>
             <h2 className="text-2xl font-bold text-white">
               ProjectWorks<span className="text-indigo-500">Studio</span>
@@ -430,7 +390,7 @@ export default function LandingPage() {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="#services">Services</Link></li>
-              <li><Link href="#portfolio">Projects</Link></li>
+              <li><Link href="#project">Projects</Link></li>
               <li><Link href="#pricing">Pricing</Link></li>
               <li><Link href="#contact">Contact</Link></li>
             </ul>
