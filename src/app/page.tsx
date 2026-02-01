@@ -199,7 +199,7 @@ export default function LandingPage() {
           </p>
         </motion.div>
 
-        <div className="mt-4 flex flex-col sm:flex-row gap-2 justify-center">
+        <div className="mt-8 flex flex-col sm:flex-row gap-2 justify-center">
           <Link href="#pricing" className="bg-white text-indigo-700 px-4 py-3 rounded-xl font-semibold">
             View Pricing
           </Link>

@@ -105,7 +105,7 @@ export default function Navbar() {
 
       {/* MOBILE FULL SCREEN MENU */}
       {open && (
-        <div className="fixed inset-0 z-[999] bg-white flex flex-col items-center justify-center gap-10">
+        <div className="fixed inset-0 z-[999] bg-white flex flex-col items-center justify-center gap-12">
           <button
             onClick={() => setOpen(false)}
             className="absolute top-6 right-6"
