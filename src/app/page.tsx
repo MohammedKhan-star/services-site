@@ -164,7 +164,7 @@ export default function LandingPage() {
   }, [charIndex, roleIndex, isPaused]);
 
   return (
-    <main className="bg-slate-50 text-slate-900">
+    <main >
       <Navbar />
 
       {/* HERO */}

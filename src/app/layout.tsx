@@ -1,28 +1,22 @@
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
-import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
+import "./globals.css";
+import Navbar from "./components/Navbar";
 
 export const metadata = {
-  title: 'ProjectWorks | Web Development Services',
-  description: 'Agency-grade web solutions by Mohammed Khan',
-}
+  title: "ProjectWorksStudio",
+  description: "Founder-led web development studio",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable}`}>
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+    <html lang="en">
+      <body className="bg-slate-50 text-slate-900">
+        <Navbar />
+        <main className="pt-2">{children}</main>
       </body>
     </html>
-  )
+  );
 }
