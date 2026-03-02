@@ -407,7 +407,7 @@ export default function LandingPage() {
 
             <div className="flex justify-center md:justify-start gap-5 mt-6">
               <a href="https://github.com/MohammedKhan-star"><Github /></a>
-              <a href="https://www.linkedin.com/in/mohammed-khan-7905a621a/"><Linkedin /></a>
+              <a href="https://www.linkedin.com/company/projectworksstudio/"><Linkedin /></a>
               <a href="https://www.instagram.com/projectworks_studio/"><Instagram /></a>
               <a href="https://wa.me/9542355897"><MessageCircle /></a>
             </div>
