@@ -188,9 +188,9 @@ const SERVICES = [
 ];
 
 const PROJECTS = [
-  { title: "Portfolio", image: "/projects/ecommerce.png", live: "https://mohammedkhan.dev/", tech: ["Next.js"] },
-  { title: "School Result Potal", image: "/projects/ecommerce.png", live: "https://tssscpreresult.vercel.app/", tech: ["Next.js"] },
-  { title: "Business Landing Page", image: "/projects/ecommerce.png", live: "https://projectworkstudio.mohammedkhan.dev/", tech: ["Next.js"] },
+  { title: "Portfolio", image: "/projects/Portfolio.png", live: "https://mohammedkhan.dev/", tech: ["Next.js"] },
+  { title: "School Result Potal", image: "/projects/SchoolResult.png", live: "https://tssscpreresult.vercel.app/", tech: ["Next.js"] },
+  { title: "Business Landing Page", image: "/projects/Businesslandingpage.png", live: "https://projectworkstudio.mohammedkhan.dev/", tech: ["Next.js"] },
   { title: "AI Food Delivery App", image: "/projects/food.png", live: "https://food-delivery-app-zomoto.vercel.app/", tech: ["MERN","Admin", "AI", "Stripe"] },
   { title: "Learning Management System", image: "/projects/LMS5.png", live: "https://lms-sandy-six.vercel.app/", tech: ["MERN", "Admin"] },
   { title: "AI E-Commerce Platform", image: "/projects/AI Ecommerce25.png", live: "https://gocart-xqlp.vercel.app/", tech: ["Next.js", "AI"] },
@@ -536,11 +536,52 @@ export default function LandingPage() {
         </h2>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {PRICING.map((p, i) => (
-            <div key={i} className={`bg-white p-6 rounded-3xl shadow text-center ${p.popular ? "ring-2 ring-indigo-500" : ""}`}>
-              <h3 className="font-medium">{p.name}</h3>
-              <p className="text-3xl font-bold text-indigo-600 mt-2">{p.price}</p>
-            </div>
-          ))}
+  <div
+    key={i}
+    className={`bg-white p-6 rounded-3xl shadow text-center ${
+      p.popular ? "ring-2 ring-indigo-500" : ""
+    }`}
+  >
+    <h3 className="font-semibold text-lg">{p.name}</h3>
+
+    {/* Market Price (striked) */}
+    <p className="text-red-500 line-through text-sm mt-2">
+      {p.marketPrice}
+    </p>
+
+    {/* Offer Price */}
+    <p className="text-3xl font-bold text-indigo-600 mt-1">
+      {p.price}
+    </p>
+
+    {/* Save Amount */}
+    <p className="text-green-600 text-sm font-medium mt-1">
+      {p.save}
+    </p>
+
+    {/* Description */}
+    <p className="text-slate-600 text-sm mt-3">
+      {p.description}
+    </p>
+
+    {/* Features */}
+    <ul className="mt-4 space-y-2 text-sm text-left">
+      {p.features.map((f, j) => (
+        <li key={j} className="flex items-center gap-2">
+          <Check size={16} className="text-emerald-500" />
+          {f}
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href="#contact"
+      className="block mt-6 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-xl text-sm"
+    >
+      Get Started
+    </a>
+  </div>
+))}
         </div>
       </section>
 
