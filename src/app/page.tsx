@@ -102,36 +102,235 @@ const roles = [
 ];
 
 const SERVICES = [
-  { title: "Portfolio Websites", icon: <Store />, desc: "Personal & professional portfolios", points: ["Custom UI", "Resume", "Contact Form"] },
-  { title: "Business Websites", icon: <Users />, desc: "High-conversion business sites", points: ["SEO", "Fast"] },
-  { title: "Education Websites", icon: <GraduationCap />, desc: "Schools & institutes", points: ["Admissions", "Courses", "Dashboard"] },
-  { title: "Food Websites", icon: <Utensils />, desc: "Restaurants & cafes", points: ["Menu", "Orders", "Booking"] },
-  { title: "E-Commerce", icon: <ShoppingCart />, desc: "Online stores", points: ["Payments", "Admin", "Products"] },
-  { title: "Full-Stack Apps", icon: <Code />, desc: "MERN / SaaS apps", points: ["APIs", "Auth", "Deploy"] },
+  {
+    title: "Portfolio Websites",
+    icon: <Store />,
+    desc: "Modern personal and professional portfolio websites for developers, freelancers and job seekers.",
+    points: [
+      "Custom UI Design",
+      "Projects Showcase",
+      "Resume Download",
+      "Contact Form",
+      "Mobile Responsive",
+      "SEO Ready"
+    ]
+  },
+
+  {
+    title: "Business Websites",
+    icon: <Users />,
+    desc: "Professional websites designed to help businesses attract more customers and grow online.",
+    points: [
+      "Professional Design",
+      "SEO Optimization",
+      "Google Maps Integration",
+      "WhatsApp Chat Button",
+      "Fast Loading",
+      "Lead Generation Forms"
+    ]
+  },
+
+  {
+    title: "Education Websites",
+    icon: <GraduationCap />,
+    desc: "Complete websites for schools, colleges and institutes with student management features.",
+    points: [
+      "Admissions Forms",
+      "Courses Management",
+      "Student Dashboard",
+      "Results Portal",
+      "Admin Panel",
+      "Mobile Friendly"
+    ]
+  },
+
+  {
+    title: "Restaurant & Food Websites",
+    icon: <Utensils />,
+    desc: "Beautiful websites for restaurants, cafes and food businesses to attract more customers.",
+    points: [
+      "Digital Menu",
+      "Online Orders",
+      "Table Booking",
+      "Google Maps Location",
+      "Mobile Responsive",
+      "WhatsApp Orders"
+    ]
+  },
+
+  {
+    title: "E-Commerce Stores",
+    icon: <ShoppingCart />,
+    desc: "Complete online stores with product management and secure payment systems.",
+    points: [
+      "Product Management",
+      "Shopping Cart",
+      "Online Payment Gateway",
+      "Order Tracking",
+      "Admin Dashboard",
+      "SEO Optimized"
+    ]
+  },
+
+  {
+    title: "Custom Full-Stack Applications",
+    icon: <Code />,
+    desc: "Advanced web applications and SaaS platforms built using modern technologies.",
+    points: [
+      "MERN / Next.js Development",
+      "Authentication System",
+      "REST APIs",
+      "Database Integration",
+      "Admin Dashboard",
+      "Cloud Deployment"
+    ]
+  }
 ];
 
 const PROJECTS = [
-  { title: "AI Food Delivery App", image: "/projects/food.png", live: "https://food-delivery-app-zomoto.vercel.app/", tech: ["MERN", "AI", "Stripe"] },
+  { title: "Portfolio", image: "/projects/ecommerce.png", live: "https://mohammedkhan.dev/", tech: ["Next.js"] },
+  { title: "School Result Potal", image: "/projects/ecommerce.png", live: "https://tssscpreresult.vercel.app/", tech: ["Next.js"] },
+  { title: "Business Landing Page", image: "/projects/ecommerce.png", live: "https://projectworkstudio.mohammedkhan.dev/", tech: ["Next.js"] },
+  { title: "AI Food Delivery App", image: "/projects/food.png", live: "https://food-delivery-app-zomoto.vercel.app/", tech: ["MERN","Admin", "AI", "Stripe"] },
   { title: "Learning Management System", image: "/projects/LMS5.png", live: "https://lms-sandy-six.vercel.app/", tech: ["MERN", "Admin"] },
   { title: "AI E-Commerce Platform", image: "/projects/AI Ecommerce25.png", live: "https://gocart-xqlp.vercel.app/", tech: ["Next.js", "AI"] },
   { title: "YouTube Clone", image: "/projects/Youtubeclone1.png", live: "https://youtube-clone-4-glwf.onrender.com/", tech: ["React", "API"] },
-  { title: "NXTTRENDZ Store", image: "/projects/ecommerce.png", live: "https://khannxttreandz.ccbp.tech/", tech: ["Next.js"] },
+  { title: "NXTTRENDZ Store", image: "/projects/ecommerce.png", live: "https://khannxttreandz.ccbp.tech/", tech: ["React"] },
 ];
 
 const PRICING = [
-  { name: "Starter", price: "₹5,000" },
-  { name: "Portfolio Pro", price: "₹7,000" },
-  { name: "Business", price: "₹12,000" },
-  { name: "Business Pro", price: "₹25,000", popular: true },
-  { name: "Advanced App", price: "₹45,000" },
-];
+  {
+    name: "Basic Website",
+    marketPrice: "₹5,000",
+    price: "₹999",
+    save: "Save ₹4,001",
+    description: "Simple one-page website for small businesses. (Domain & hosting not included)",
+    features: [
+      "1 Page Website",
+      "Mobile Responsive Design",
+      "Basic SEO Setup",
+      "Contact Form",
+      "Fast Loading",
+      "1 Revision Support"
+    ]
+  },
 
+  {
+    name: "Portfolio Website",
+    marketPrice: "₹8,000",
+    price: "₹1,500",
+    save: "Save ₹6,500",
+    description: "Professional portfolio website to showcase your skills and projects. (Domain & hosting not included)",
+    features: [
+      "3 Pages Website",
+      "Modern UI Design",
+      "Mobile Responsive",
+      "Projects Showcase",
+      "Contact Form",
+      "Social Media Links"
+    ]
+  },
+
+  {
+    name: "Portfolio Pro",
+    marketPrice: "₹15,000",
+    price: "₹3,000",
+    save: "Save ₹12,000",
+    description: "Advanced portfolio with animations and premium UI design. (Domain & hosting not included)",
+    features: [
+      "5+ Pages",
+      "Custom Design",
+      "Animations",
+      "SEO Optimized",
+      "Fast Performance",
+      "Google Analytics Setup",
+      "2 Weeks Support"
+    ]
+  },
+
+  {
+    name: "Business Landing Page Pro",
+    marketPrice: "₹25,000",
+    price: "₹12,000",
+    save: "Save ₹13,000",
+    description: "High-conversion landing page for businesses to generate leads. (Domain & hosting not included)",
+    features: [
+      "Professional Landing Page",
+      "Lead Capture Forms",
+      "Google Maps Integration",
+      "WhatsApp Chat Button",
+      "SEO Setup",
+      "Speed Optimization",
+      "1 Month Support"
+    ]
+  },
+
+  {
+    name: "E-Commerce Pro",
+    marketPrice: "₹60,000",
+    price: "₹25,000",
+    save: "Save ₹35,000",
+    popular: true,
+    description: "Complete online store with payment gateway and product management. (Domain & hosting not included)",
+    features: [
+      "Product Management",
+      "Shopping Cart",
+      "Online Payment Gateway",
+      "Admin Dashboard",
+      "Order Management",
+      "Mobile Responsive",
+      "Basic SEO Setup"
+    ]
+  },
+
+  {
+    name: "Advanced Full Stack Web Application",
+    marketPrice: "₹1,20,000",
+    price: "₹45,000",
+    save: "Save ₹75,000",
+    description: "Custom web applications or SaaS platforms built with modern technologies. (Domain & hosting not included)",
+    features: [
+      "Full Stack Development",
+      "Authentication System",
+      "Database Integration",
+      "Admin Dashboard",
+      "API Development",
+      "Cloud Deployment",
+      "2 Months Support"
+    ]
+  }
+];
 const DOMAINS = [
-  { name: ".com", price: "₹999 / year" },
-  { name: ".in", price: "₹699 / year" },
-  { name: ".dev", price: "₹3,499 / year" },
-  { name: ".tech", price: "₹2,999 / year" },
-  { name: ".store", price: "₹2,499 / year" },
+  {
+    name: ".com",
+    price: "₹899 / year",
+    description: "Most popular global domain for businesses and startups."
+  },
+  {
+    name: ".in",
+    price: "₹699 / year",
+    description: "Best for businesses targeting customers in India."
+  },
+  {
+    name: ".dev",
+    price: "₹3,499 / year",
+    description: "Perfect for developers and tech portfolios."
+  },
+  {
+    name: ".tech",
+    price: "₹2,999 / year",
+    description: "Modern domain used by technology startups."
+  },
+  {
+    name: ".store",
+    price: "₹2,499 / year",
+    description: "Best for e-commerce websites and online shops."
+  },
+  {
+    name: ".online",
+    price: "₹1,999 / year",
+    description: "Good for digital businesses and personal brands."
+  }
 ];
 
 /* ================= PAGE ================= */
