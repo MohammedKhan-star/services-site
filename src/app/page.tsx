@@ -36,16 +36,16 @@ function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b">
+    <header className="fixed top-0 inset-x-0 z-50 bg-#fffff border-b backdrop-blur border-b">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3">
+        <Link href="/" className="flex items-center gap-2 border-color-#000 md:gap-3">
           <Image
-            src="/logo/logo.png"
+            src="/logo/logo1.png"
             alt="ProjectWorksStudio Logo"
             width={40}
             height={40}
-            className="rounded-full object-cover"
+            className="rounded-full object-cover border-color-#000"
           />
           <span className="hidden md:inline text-2xl font-extrabold text-indigo-600">
             ProjectWorks<span className="text-gray-900">Studio</span>
@@ -93,37 +93,37 @@ function Navbar() {
 
 /* ================= DATA ================= */
 const roles = [
-  "Full Stack Web Developer helping businesses and startups build modern, scalable, and high-performing web applications",
-  "Experience building AI-powered, scalable web applications",
-  "End-to-end development: frontend, backend, APIs, and deployment",
-  "Specialized in MERN stack, Next.js, and OpenAI API integrations",
-  "Passionate about clean code, responsive design, and intuitive UX",
-  "We can build, deploy, and maintain real production applications.",
-];
+  "We build powerful websites that grow your business",
+  "Turn your idea into a powerful website",
+  "Fast, secure, and modern web applications",
+  "Helping startups build their digital presence",
+  "Professional websites for schools and businesses",
+  "Custom web applications built for real users",
+  ];
 
-const SERVICES = [
-  { title: "Portfolio Websites", icon: <Store />, desc: "Personal & professional portfolios", points: ["Custom UI", "Resume", "Contact Form"] },
-  { title: "Business Websites", icon: <Users />, desc: "High-conversion business sites", points: ["SEO", "Fast"] },
-  { title: "Education Websites", icon: <GraduationCap />, desc: "Schools & institutes", points: ["Admissions", "Courses", "Dashboard"] },
-  { title: "Food Websites", icon: <Utensils />, desc: "Restaurants & cafes", points: ["Menu", "Orders", "Booking"] },
-  { title: "E-Commerce", icon: <ShoppingCart />, desc: "Online stores", points: ["Payments", "Admin", "Products"] },
-  { title: "Full-Stack Apps", icon: <Code />, desc: "MERN / SaaS apps", points: ["APIs", "Auth", "Deploy"] },
-];
+const SERVICES = [ { title: "Portfolio Websites", icon: <Store />, desc: "Modern personal and professional portfolio websites for developers, freelancers and job seekers.", points: [ "Custom UI Design", "Projects Showcase", "Resume Download", "Contact Form", "Mobile Responsive", "SEO Ready" ] }, { title: "Business Websites", icon: <Users />, desc: "Professional websites designed to help businesses attract more customers and grow online.", points: [ "Professional Design", "SEO Optimization", "Google Maps Integration", "WhatsApp Chat Button", "Fast Loading", "Lead Generation Forms" ] }, { title: "Education Websites", icon: <GraduationCap />, desc: "Complete websites for schools, colleges and institutes with student management features.", points: [ "Admissions Forms", "Courses Management", "Student Dashboard", "Results Portal", "Admin Panel", "Mobile Friendly" ] }, { title: "Restaurant & Food Websites", icon: <Utensils />, desc: "Beautiful websites for restaurants, cafes and food businesses to attract more customers.", points: [ "Digital Menu", "Online Orders", "Table Booking", "Google Maps Location", "Mobile Responsive", "WhatsApp Orders" ] }, { title: "E-Commerce Stores", icon: <ShoppingCart />, desc: "Complete online stores with product management and secure payment systems.", points: [ "Product Management", "Shopping Cart", "Online Payment Gateway", "Order Tracking", "Admin Dashboard", "SEO Optimized" ] }, { title: "Custom Full-Stack Applications", icon: <Code />, desc: "Advanced web applications and SaaS platforms built using modern technologies.", points: [ "MERN / Next.js Development", "Authentication System", "REST APIs", "Database Integration", "Admin Dashboard", "Cloud Deployment" ] } ];
+
+
 
 const PROJECTS = [
-  { title: "AI Food Delivery App", image: "/projects/food.png", live: "https://food-delivery-app-zomoto.vercel.app/", tech: ["MERN", "AI", "Stripe"] },
-  { title: "Learning Management System", image: "/projects/LMS5.png", live: "https://lms-sandy-six.vercel.app/", tech: ["MERN", "Admin"] },
-  { title: "AI E-Commerce Platform", image: "/projects/AI Ecommerce25.png", live: "https://gocart-xqlp.vercel.app/", tech: ["Next.js", "AI"] },
-  { title: "YouTube Clone", image: "/projects/Youtubeclone1.png", live: "https://youtube-clone-4-glwf.onrender.com/", tech: ["React", "API"] },
-  { title: "NXTTRENDZ Store", image: "/projects/ecommerce.png", live: "https://khannxttreandz.ccbp.tech/", tech: ["Next.js"] },
+{title:"Portfolio",image:"/projects/Potfolio.png",live:"https://mohammedkhan.dev/",tech:["Next.js","SEO"]},
+{title:"School Result Portal",image:"/projects/Schoolresultportal.png",live:"https://tssscpreresult.vercel.app/",tech:["Next.js","SEO"]},
+{title:"Business Landing Page",image:"/projects/Businesslandingpage.png",live:"https://projectworkstudio.mohammedkhan.dev/",tech:["Next.js","SEO"]},
+{title:"AI Food Delivery",image:"/projects/food.png",live:"https://food-delivery-app-zomoto.vercel.app/",tech:["MERN","AI"]},
+{title:"Learning Management System",image:"/projects/LMS5.png",live:"https://lms-sandy-six.vercel.app/",tech:["MERN"]},
+{title:"AI E-Commerce",image:"/projects/AI Ecommerce25.png",live:"https://gocart-xqlp.vercel.app/",tech:["Next.js","AI"]},
+{title:"YouTube Clone",image:"/projects/Youtubeclone1.png",live:"https://youtube-clone-4-glwf.onrender.com/",tech:["React"]},
+{title:"NXTTRENDZ Store",image:"/projects/ecommerce.png",live:"https://khannxttreandz.ccbp.tech/",tech:["React"]},
 ];
+const TECH = ["Next.js","React","Node.js","MongoDB","AI","Stripe"];
 
 const PRICING = [
-  { name: "Starter", price: "₹5,000" },
-  { name: "Portfolio Pro", price: "₹7,000" },
-  { name: "Business", price: "₹12,000" },
-  { name: "Business Pro", price: "₹25,000", popular: true },
-  { name: "Advanced App", price: "₹45,000" },
+{name:"Basic Website",price:"₹999",market:"₹5000",features:["1 Page","Responsive","Contact Form"]},
+{name:"Portfolio",price:"₹1499",market:"₹8000",features:["3 Pages","Projects","SEO"]},
+{name:"Portfolio Pro",price:"₹2999",market:"₹15000",features:["Animations","Analytics","5 Pages"]},
+{name:"Business Landing Pro",price:"₹11999",market:"₹25000",features:["Lead Forms","Maps","WhatsApp"]},
+{name:"E-Commerce",price:"₹24999",market:"₹60000",features:["Products","Payments","Admin"]},
+{name:"Full Stack Application",price:"₹44999",market:"₹100000",features:["Database","API","Auth"]}
 ];
 
 const DOMAINS = [
@@ -164,11 +164,11 @@ export default function LandingPage() {
   }, [charIndex, roleIndex, isPaused]);
 
   return (
-    <main >
+    <main className="mt-16">
       <Navbar />
 
       {/* HERO */}
-      <section className="pt-40 pb-32 text-center bg-gradient-to-br from-indigo-600 via-purple-500 to-cyan-400 text-white px-6">
+      <section className="pt-50 pb-0 pb-32 text-center bg-gradient-to-br from-indigo-600 via-indigo-800 to-cyan-500 text-white px-6">
         <motion.h1
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -331,93 +331,128 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-24 px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-indigo-600">
-          Pricing
-        </h2>
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {PRICING.map((p, i) => (
-            <div key={i} className={`bg-white p-6 rounded-3xl shadow text-center ${p.popular ? "ring-2 ring-indigo-500" : ""}`}>
-              <h3 className="font-medium">{p.name}</h3>
-              <p className="text-3xl font-bold text-indigo-600 mt-2">{p.price}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  {/* TECHNOLOGY */}
 
-      {/* DOMAINS */}
-      <section className="py-24 bg-slate-100 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-indigo-600 mb-10">
-            Domain Pricing
-          </h2>
+<section className="py-24 bg-slate-100 text-center">
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {DOMAINS.map((d, i) => (
-              <div key={i} className="bg-white p-6 rounded-3xl shadow">
-                <Globe className="mx-auto text-indigo-600 mb-3" />
-                <h3 className="text-2xl font-bold">{d.name}</h3>
-                <p>{d.price}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section id="contact" className="py-28 text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-600">
-          Get Free Proposal PDF
-        </h2>
+<h2 className="text-4xl font-bold mb-10">Technology Stack</h2>
 
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSebe1iZL2ixmwghyEXrnnESejV3_cGa-0pGFiL0CHbQZJt2ig/viewform"
-          className="w-full max-w-5xl mx-auto h-[750px] rounded-3xl shadow"
-        />
-      </section>
+<div className="flex flex-wrap justify-center gap-6">
 
-      {/* FOOTER */}
-      <footer className="bg-black text-gray-300 pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-6 grid gap-12 md:grid-cols-3 text-center md:text-left">
-          <div>
-            <h2 className="text-2xl font-bold text-white">
-              ProjectWorks<span className="text-indigo-500">Studio</span>
-            </h2>
-            <p className="mt-4 text-sm text-gray-400">
-              Building modern, high-performance websites & full-stack applications.
-            </p>
-          </div>
+{TECH.map((t,i)=>(
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#services">Services</Link></li>
-              <li><Link href="#project">Projects</Link></li>
-              <li><Link href="#pricing">Pricing</Link></li>
-              <li><Link href="#contact">Contact</Link></li>
-            </ul>
-          </div>
+<span key={i} className="bg-white px-6 py-3 rounded-full shadow">{t}</span>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Get in Touch</h3>
-            <a
-              href="mailto:contact.projectworksstudio@gmail.com"
-              className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg text-sm"
-            >
-              <Mail size={18} /> Email Me
-            </a>
+))}
 
-            <div className="flex justify-center md:justify-start gap-5 mt-6">
-              <a href="https://github.com/MohammedKhan-star"><Github /></a>
-              <a href="https://www.linkedin.com/in/mohammed-khan-7905a621a/"><Linkedin /></a>
-              <a href="https://www.instagram.com/projectworks_studio/"><Instagram /></a>
-              <a href="https://wa.me/9542355897"><MessageCircle /></a>
-            </div>
-          </div>
-        </div>
+</div>
 
-        <div className="border-t border-gray-800 mt-14 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} ProjectWorksStudio · Built by Mohammed Khan
-        </div>
-      </footer>
+</section>
+
+
+{/* PRICING */}
+
+<section id="pricing" className="py-24 px-6">
+
+<h2 className="text-4xl font-bold text-center mb-12 text-indigo-600">Pricing</h2>
+
+<div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+{PRICING.map((p,i)=>(
+
+<div key={i} className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl text-center">
+
+<h3 className="font-semibold text-lg">{p.name}</h3>
+
+<p className="line-through text-red-500">{p.market}</p>
+
+<p className="text-3xl font-bold text-indigo-600">{p.price}</p>
+
+<ul className="mt-4 space-y-2 text-sm">
+
+{p.features.map((f,j)=>(
+
+<li key={j} className="flex justify-center gap-2"><Check size={16}/> {f}</li>
+
+))}
+
+</ul>
+
+</div>
+
+))}
+
+</div>
+
+</section>
+
+
+{/* DOMAIN */}
+
+<section className="py-24 bg-slate-100">
+
+<h2 className="text-4xl font-bold text-center mb-12">Domain Pricing and Hosting</h2>
+
+<div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+
+{DOMAINS.map((d,i)=>(
+
+<div key={i} className="bg-white p-8 rounded-3xl shadow text-center">
+
+<Globe className="mx-auto text-indigo-600"/>
+
+<h3 className="text-2xl font-bold mt-3">{d.name}</h3>
+
+<p className="text-indigo-600">{d.price}</p>
+
+</div>
+
+))}
+
+</div>
+
+</section>
+
+
+{/* CONTACT */}
+
+<section id="contact" className="py-24 text-center">
+
+<h2 className="text-4xl font-bold text-indigo-600 mb-6">Get Free Proposal</h2>
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSebe1iZL2ixmwghyEXrnnESejV3_cGa-0pGFiL0CHbQZJt2ig/viewform"
+className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
+/>
+
+</section>
+
+
+{/* FOOTER */}
+
+<footer className="bg-black text-gray-400 py-10 text-center">
+
+<div className="flex justify-center gap-6 mb-6">
+
+<a href="https://github.com/MohammedKhan-star"><Github/></a>
+<a href="https://www.linkedin.com/company/projectworksstudio/"><Linkedin/></a>
+<a href="https://www.instagram.com/projectworks_studio/"><Instagram/></a>
+
+</div>
+
+<p>© {new Date().getFullYear()} ProjectWorksStudio — Built by Mohammed Khan</p>
+
+</footer>
+
+
+{/* WHATSAPP BUTTON */}
+
+<a
+href="https://wa.me/9542355897"
+className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition"
+>
+<MessageCircle/>
+</a>
     </main>
   );
 }

@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo/logo.png"
+              src="/logo/logo1.png"
               alt="ProjectWorksStudio"
               width={36}
               height={36}
@@ -64,7 +64,7 @@ export default function Navbar() {
               ${scrolled ? "text-indigo-600" : "text-white"}`}
             >
               ProjectWorks
-              <span className={scrolled ? "text-gray-900" : "text-white"}>
+              <span className={scrolled ? "text-orange-900" : "text-white"}>
                 Studio
               </span>
             </span>
@@ -81,7 +81,7 @@ export default function Navbar() {
                   active === id
                     ? "text-indigo-600"
                     : scrolled
-                    ? "text-gray-700 hover:text-indigo-600"
+                    ? "text-orange-900 hover:text-indigo-600"
                     : "text-white hover:text-indigo-200"
                 }`}
               >
