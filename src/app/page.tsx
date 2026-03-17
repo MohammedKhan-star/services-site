@@ -148,22 +148,84 @@ Projects
 
 
 {/* ABOUT */}
+<section id="about" className="py-28 bg-white px-6">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
-<section id="about" className="py-24 max-w-6xl mx-auto px-6 text-center">
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-600">
+        About ProjectWorksStudio
+      </h2>
 
-<h2 className="text-4xl font-bold mb-6 text-indigo-600">
+      <p className="text-slate-700 leading-relaxed mb-5">
+        <span className="font-semibold text-slate-900">ProjectWorksStudio</span> 
+        is a modern web development and web application building service hub 
+        founded by <span className="font-semibold text-slate-900">Mohammed Khan</span>, 
+        a passionate Software Engineer and Full-Stack Developer.
+      </p>
 
-About Us
+      <p className="text-slate-700 leading-relaxed mb-5">
+        Since 2026, the studio has focused on helping businesses, startups, 
+        and entrepreneurs build professional websites and scalable web 
+        applications that improve their digital presence and business growth.
+      </p>
 
-</h2>
+      <p className="text-slate-700 leading-relaxed mb-6">
+        At ProjectWorksStudio, every project is handled from concept to launch — 
+        including planning, UI/UX design, development, deployment, and long-term 
+        support — ensuring high-quality solutions that are fast, secure, and 
+        built for real-world use.
+      </p>
 
-<p className="text-slate-600 leading-relaxed">
+      <div className="flex flex-wrap gap-3">
+        {[
+          "MERN Stack Development",
+          "Next.js Web Applications",
+          "Modern UI/UX Design",
+          "SEO Optimized Websites",
+          "Long-Term Technical Support"
+        ].map((tag) => (
+          <span
+            key={tag}
+            className="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm font-medium"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </motion.div>
 
-ProjectWorksStudio is a founder-led web development studio by <b>Mohammed Khan</b>.
-We build modern websites, SaaS platforms and full-stack web applications for startups and businesses.
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="bg-gradient-to-br from-indigo-600 via-purple-500 to-cyan-400 rounded-3xl p-10 text-white shadow-xl"
+    >
+      <h3 className="text-2xl font-bold mb-6">
+        How We Work
+      </h3>
 
-</p>
+      <ul className="space-y-4 text-sm md:text-base">
+        {[
+          "Clear project planning and requirement analysis",
+          "Clean, scalable and maintainable development",
+          "Performance, SEO and responsive design by default",
+          "Direct communication with the developer"
+        ].map((item, idx) => (
+          <li key={idx} className="flex gap-3 items-start">
+            <Check className="text-emerald-300 mt-1" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
 
+  </div>
 </section>
 
 
