@@ -164,7 +164,7 @@ export default function LandingPage() {
   }, [charIndex, roleIndex, isPaused]);
 
   return (
-    <main className="mt-16">
+    <main className="mt-14">
       <Navbar />
 
       {/* HERO */}
