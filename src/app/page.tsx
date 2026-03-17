@@ -49,6 +49,7 @@ function Navbar() {
             ProjectWorks<span className="text-gray-900">Studio</span>
           </span>
         </Link>
+        {/* Typing effect */} <motion.div onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} className="mt-6 h-14 flex items-center justify-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} > <p className="text-lg md:text-2xl font-medium bg-gradient-to-r from-white via-cyan-200 to-indigo-100 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]"> {text} <span className="ml-1 animate-blink">|</span> </p> </motion.div>
 
         <div className="hidden md:flex gap-8 font-medium">
           {["about","services","project","pricing","contact"].map((i)=>(
@@ -77,45 +78,9 @@ function Navbar() {
 }
 
 /* ================= DATA ================= */
+/* ================= DATA ================= */ const roles = [ "Full Stack Web Developer helping businesses and startups build modern, scalable, and high-performing web applications", "Experience building AI-powered, scalable web applications", "End-to-end development: frontend, backend, APIs, and deployment", "Specialized in MERN stack, Next.js, and OpenAI API integrations", "Passionate about clean code, responsive design, and intuitive UX", "We can build, deploy, and maintain real production applications.", ];
 
-const SERVICES = [
-{
-title:"Portfolio Websites",
-icon:<Store/>,
-desc:"Modern personal portfolios",
-points:["Custom UI","Projects Showcase","Contact Form"]
-},
-{
-title:"Business Websites",
-icon:<Users/>,
-desc:"Websites that convert visitors",
-points:["SEO","Fast Speed","Lead Forms"]
-},
-{
-title:"Education Websites",
-icon:<GraduationCap/>,
-desc:"School & institute websites",
-points:["Admissions","Courses","Dashboard"]
-},
-{
-title:"Restaurant Websites",
-icon:<Utensils/>,
-desc:"Restaurant digital presence",
-points:["Menu","Orders","Booking"]
-},
-{
-title:"E-Commerce Stores",
-icon:<ShoppingCart/>,
-desc:"Complete online stores",
-points:["Payments","Products","Admin Panel"]
-},
-{
-title:"Full Stack Apps",
-icon:<Code/>,
-desc:"Advanced SaaS applications",
-points:["API","Auth","Deployment"]
-}
-];
+const SERVICES = [ { title: "Portfolio Websites", icon: <Store />, desc: "Modern personal and professional portfolio websites for developers, freelancers and job seekers.", points: [ "Custom UI Design", "Projects Showcase", "Resume Download", "Contact Form", "Mobile Responsive", "SEO Ready" ] }, { title: "Business Websites", icon: <Users />, desc: "Professional websites designed to help businesses attract more customers and grow online.", points: [ "Professional Design", "SEO Optimization", "Google Maps Integration", "WhatsApp Chat Button", "Fast Loading", "Lead Generation Forms" ] }, { title: "Education Websites", icon: <GraduationCap />, desc: "Complete websites for schools, colleges and institutes with student management features.", points: [ "Admissions Forms", "Courses Management", "Student Dashboard", "Results Portal", "Admin Panel", "Mobile Friendly" ] }, { title: "Restaurant & Food Websites", icon: <Utensils />, desc: "Beautiful websites for restaurants, cafes and food businesses to attract more customers.", points: [ "Digital Menu", "Online Orders", "Table Booking", "Google Maps Location", "Mobile Responsive", "WhatsApp Orders" ] }, { title: "E-Commerce Stores", icon: <ShoppingCart />, desc: "Complete online stores with product management and secure payment systems.", points: [ "Product Management", "Shopping Cart", "Online Payment Gateway", "Order Tracking", "Admin Dashboard", "SEO Optimized" ] }, { title: "Custom Full-Stack Applications", icon: <Code />, desc: "Advanced web applications and SaaS platforms built using modern technologies.", points: [ "MERN / Next.js Development", "Authentication System", "REST APIs", "Database Integration", "Admin Dashboard", "Cloud Deployment" ] } ];
 
 const PROJECTS = [
 {title:"Portfolio",image:"/projects/Portfolio.png",live:"https://mohammedkhan.dev/",tech:["Next.js"]},
@@ -139,20 +104,14 @@ const PRICING = [
 {name:"Full Stack App",price:"₹45000",market:"₹120000",features:["Database","API","Auth"]}
 ];
 
-const DOMAINS = [
-{name:".com",price:"₹899/year"},
-{name:".in",price:"₹699/year"},
-{name:".dev",price:"₹3499/year"},
-{name:".tech",price:"₹2999/year"},
-{name:".store",price:"₹2499/year"},
-];
+const DOMAINS = [ { name: ".com", price: "₹899 / year", description: "Most popular global domain for businesses and startups." }, { name: ".in", price: "₹699 / year", description: "Best for businesses targeting customers in India." }, { name: ".dev", price: "₹3,499 / year", description: "Perfect for developers and tech portfolios." }, { name: ".tech", price: "₹2,999 / year", description: "Modern domain used by technology startups." }, { name: ".store", price: "₹2,499 / year", description: "Best for e-commerce websites and online shops." }, { name: ".online", price: "₹1,999 / year", description: "Good for digital businesses and personal brands." } ];
 
 /* ================= PAGE ================= */
 
 export default function Page(){
 
 return(
-<main className="bg-white text-slate-900">
+<main className="bg-white text-slate-600">
 
 <Navbar/>
 
