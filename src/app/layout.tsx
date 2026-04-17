@@ -3,16 +3,16 @@ import Navbar from "./components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Project Works Studio | Web Development & SaaS Solutions",
+  title: "DevCore Agency | Web Development & SaaS Solutions",
   description:
-    "ProjectWorks Studio is a founder-led web development studio by Mohammed Khan building modern websites, web applications, and SaaS platforms for businesses.",
+    "DevCore Agency is a leading web development company specializing in Next.js and MERN stack solutions. We create high-performance websites and SaaS applications tailored to your business needs.", 
   keywords: [
-    "ProjectWorksStudio",
+    "DevCore Agency",
     "Web Development",
     "Next.js Developer",
     "MERN Stack Developer",
     "SaaS Development",
-    "Mohammed Khan Developer",
+    "Mohammed Khan Software Developer",
   ],
   authors: [{ name: "Mohammed Khan" }],
 };
