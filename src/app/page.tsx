@@ -808,8 +808,9 @@ className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
 
 </div>
 
-<p>© {new Date().getFullYear()} ProjectWorksStudio — Built by Mohammed Khan</p>
-
+<p>
+  © {new Date().getFullYear()} DevCore Agency — Founder & Full Stack Developer Mohammed Khan
+</p>
 </footer>
 
 
