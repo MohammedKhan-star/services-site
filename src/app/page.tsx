@@ -41,14 +41,14 @@ function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 border-color-#000 md:gap-3">
           <Image
-            src="/logo/logo4.png"
-            alt="ProjectWorksStudio Logo"
+            src="/logo/logo5.png"
+            alt="STACKRA TECHNOLOGIES Software Web & AI Solutions"
             width={40}
             height={40}
             className="rounded-full object-cover border-color-#000"
           />
           <span className="hidden md:inline text-2xl font-extrabold text-indigo-600">
-            DevCore<span className="text-gray-900">Agency</span>
+            STACKRA<span className="text-gray-900">TECHNOLOGIES</span>
           </span>
         </Link>
 
@@ -192,7 +192,7 @@ export default function LandingPage() {
       animate={{ opacity: 1, y: 0 }}
       className="text-4xl  md:text-5xl font-bold text-shadow-amber-400"
     >
-      DevCore Agency Software & AI Solutions
+      STACKRA TECHNOLOGIES
     </motion.h1>
 
     <motion.h2
@@ -238,9 +238,7 @@ export default function LandingPage() {
     </motion.div>
 
     <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-      <Link href="#pricing" className="bg-white text-indigo-700 px-6 py-3 rounded-xl font-semibold shadow hover:scale-105 transition">
-        View Pricing
-      </Link>
+     
 
       <Link href="#project" className="bg-indigo-700 px-6 py-3 rounded-xl shadow hover:scale-105 transition">
         Project Works
@@ -281,11 +279,11 @@ export default function LandingPage() {
         viewport={{ once: true }}
       >
         <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-6">
-          About DevCore Agency
+          About STACKRA TECHNOLOGIES
         </h2>
 
         <p className="text-slate-700 text-lg leading-relaxed mb-5">
-          DevCore Agency is a modern <span className="font-semibold text-slate-900">Software & AI Solutions company</span> focused on building scalable, high-performance digital products.
+           is a modern <span className="font-semibold text-slate-900">Software & AI Solutions company</span> focused on building scalable, high-performance digital products.
         </p>
 
         <p className="text-slate-700 text-lg leading-relaxed mb-5">
@@ -317,10 +315,10 @@ export default function LandingPage() {
         {/* Top Profile */}
         <div className="flex items-center gap-5">
           <Image
-            src="/profile/profile.jpg"
+            src="/profile/profile3.jpg"
             alt="Mohammed Khan"
-            width={90}
-            height={90}
+            width={100}
+            height={100}
             className="rounded-full object-cover border-4 border-indigo-500 shadow"
           />
 
@@ -329,10 +327,10 @@ export default function LandingPage() {
               Mohammed Khan
             </h3>
             <p className="text-sm text-indigo-600 font-medium">
-              Founder & Full-Stack Developer
+              Founder & Software Engineer
             </p>
             <p className="text-xs text-gray-500">
-              DevCore Agency
+              STACKRA TECHNOLOGIES Software Web & AI Solution
             </p>
           </div>
         </div>
@@ -415,258 +413,7 @@ export default function LandingPage() {
   </div>
 </section>
 
-      {/* SERVICES */}
-<section className="py-32 px-6 bg-slate-100">
-  <div className="max-w-7xl mx-auto">
 
-    {/* Heading */}
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-600">
-        Compare Pricing
-      </h2>
-      <p className="text-gray-600 mt-4 text-lg">
-        Transparent pricing vs market rates — get more value at less cost
-      </p>
-    </div>
-
-    {/* Table */}
-    <div className="overflow-x-auto">
-      <table className="w-full border rounded-3xl overflow-hidden shadow-lg bg-white">
-
-        {/* Header */}
-        <thead className="bg-indigo-600 text-white text-left">
-          <tr>
-            <th className="p-5">Features</th>
-            <th className="p-5 text-center">Basic</th>
-            <th className="p-5 text-center bg-indigo-700">Pro (Recommended)</th>
-            <th className="p-5 text-center">Enterprise</th>
-          </tr>
-        </thead>
-
-        {/* Body */}
-        <tbody className="text-sm">
-
-          {[
-            ["Pages", "1 Page", "5 Pages", "Unlimited"],
-            ["Design", "Basic UI", "Modern UI/UX", "Premium Custom UI"],
-            ["Responsive", "✔", "✔", "✔"],
-            ["SEO Optimization", "✖", "✔", "✔"],
-            ["Admin Panel", "✖", "✔", "✔"],
-            ["Payment Integration", "✖", "Optional", "✔"],
-            ["AI Features", "✖", "✖", "✔"],
-            ["Delivery Time", "5–7 Days", "7–10 Days", "10–15 Days"],
-          ].map((row, i) => (
-            <tr key={i} className="border-t hover:bg-slate-50">
-              <td className="p-5 font-medium">{row[0]}</td>
-              <td className="p-5 text-center">{row[1]}</td>
-              <td className="p-5 text-center bg-indigo-50 font-semibold">
-                {row[2]}
-              </td>
-              <td className="p-5 text-center">{row[3]}</td>
-            </tr>
-          ))}
-
-          {/* Pricing Row */}
-          <tr className="border-t bg-slate-100 font-bold text-center">
-            <td className="p-5">Your Price</td>
-            <td className="p-5 text-indigo-600">₹999</td>
-            <td className="p-5 text-indigo-700 text-lg">₹9,999</td>
-            <td className="p-5 text-indigo-600">₹29,999+</td>
-          </tr>
-
-          <tr className="border-t text-center text-red-500">
-            <td className="p-5">Market Price</td>
-            <td className="p-5">₹5,000+</td>
-            <td className="p-5">₹25,000+</td>
-            <td className="p-5">₹80,000+</td>
-          </tr>
-
-          {/* CTA Row */}
-          <tr className="border-t">
-            <td></td>
-            <td className="p-5 text-center">
-              <a href="#contact" className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
-                Get Started
-              </a>
-            </td>
-            <td className="p-5 text-center">
-              <a href="#contact" className="bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg">
-                Choose Pro
-              </a>
-            </td>
-            <td className="p-5 text-center">
-              <a href="#contact" className="bg-black text-white px-4 py-2 rounded-lg">
-                Contact Us
-              </a>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</section>
-<section id="pricing" className="relative py-32 px-6 overflow-hidden">
-
-  {/* ===== BACKGROUND ===== */}
-  <div className="absolute inset-0">
-    <Image
-      src="/bg/hero-bg.png"
-      alt="Pricing Background"
-      fill
-      className="object-cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-indigo-900/80 to-cyan-900/80 backdrop-blur-[4px]" />
-  </div>
-
-  <div className="relative z-10 max-w-7xl mx-auto">
-
-    {/* ===== HEADING ===== */}
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-6xl font-extrabold text-white">
-        Pricing Plans
-      </h2>
-      <p className="text-gray-300 mt-4 text-lg">
-        Simple, transparent pricing for every stage
-      </p>
-    </div>
-
-    {/* ===== TOGGLE ===== */}
-    <div className="flex justify-center mb-12">
-      <div className="bg-white/10 backdrop-blur p-2 rounded-full flex gap-2">
-        <button
-          onClick={() => setBilling("monthly")}
-          className={`px-6 py-2 rounded-full text-sm ${
-            billing === "monthly"
-              ? "bg-indigo-600 text-white"
-              : "text-gray-300"
-          }`}
-        >
-          Monthly
-        </button>
-        <button
-          onClick={() => setBilling("yearly")}
-          className={`px-6 py-2 rounded-full text-sm ${
-            billing === "yearly"
-              ? "bg-indigo-600 text-white"
-              : "text-gray-300"
-          }`}
-        >
-          Yearly (Save 20%)
-        </button>
-      </div>
-    </div>
-
-    {/* ===== CARDS ===== */}
-    <div className="grid md:grid-cols-3 gap-10">
-
-      {[
-        {
-          name: "Basic",
-          price: billing === "monthly" ? "₹999" : "₹799",
-          features: ["1 Page Website", "Responsive Design", "Contact Form"],
-        },
-        {
-          name: "Pro",
-          price: billing === "monthly" ? "₹9,999" : "₹7,999",
-          features: ["5 Pages", "SEO Optimization", "Admin Panel", "Fast Performance"],
-          popular: true,
-        },
-        {
-          name: "Enterprise",
-          price: billing === "monthly" ? "₹29,999" : "₹24,999",
-          features: ["Unlimited Pages", "AI Features", "Payments", "Full Stack"],
-        },
-      ].map((plan, i) => (
-        <motion.div
-          key={i}
-          whileHover={{ y: -12, scale: 1.03 }}
-          className="relative group"
-        >
-
-          {/* Glow Border */}
-          <div className="absolute -inset-[1px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-3xl blur opacity-40 group-hover:opacity-70 transition"></div>
-
-          {/* Card */}
-          <div className={`relative bg-white/10 backdrop-blur-xl border border-white/20 
-                          rounded-3xl p-8 text-white shadow-2xl flex flex-col
-                          ${plan.popular ? "scale-105 border-indigo-400" : ""}`}>
-
-            {/* POPULAR */}
-            {plan.popular && (
-              <span className="absolute top-4 right-4 bg-cyan-400 text-black text-xs px-3 py-1 rounded-full font-semibold">
-                Most Popular
-              </span>
-            )}
-
-            {/* NAME */}
-            <h3 className="text-xl font-semibold">{plan.name}</h3>
-
-            {/* PRICE */}
-            <p className="text-4xl font-extrabold mt-4">
-              {plan.price}
-            </p>
-
-            {/* FEATURES */}
-            <ul className="mt-6 space-y-3 text-sm flex-grow">
-              {plan.features.map((f, j) => (
-                <li key={j} className="flex gap-2">
-                  <Check size={16} className="text-emerald-400" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <a
-              href="#contact"
-              className={`mt-6 block text-center py-3 rounded-xl font-medium transition
-                ${
-                  plan.popular
-                    ? "bg-gradient-to-r from-indigo-500 to-cyan-500"
-                    : "bg-white text-black"
-                }`}
-            >
-              Get Started
-            </a>
-
-          </div>
-        </motion.div>
-      ))}
-
-    </div>
-
-    {/* ===== TRUST TEXT ===== */}
-    <p className="text-center text-gray-400 mt-12 text-sm">
-      No hidden fees • 100% transparency • Fast delivery guaranteed
-    </p>
-
-  </div>
-</section>
-
-    
-      <section id="services" className="py-24 max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Our Services
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((s, i) => (
-            <motion.div key={i} whileHover={{ y: -6 }} className="bg-white p-8 rounded-3xl shadow">
-              <div className="text-indigo-600 mb-4">{s.icon}</div>
-              <h3 className="font-semibold text-xl">{s.title}</h3>
-              <p className="text-slate-600 mt-2">{s.desc}</p>
-              <ul className="mt-4 space-y-2">
-                {s.points.map((p, j) => (
-                  <li key={j} className="flex gap-2 items-center">
-                    <Check size={18} className="text-emerald-500" /> {p}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* PROJECTS */}
       <section id="project" className="py-24 bg-slate-100">
@@ -720,66 +467,7 @@ export default function LandingPage() {
 
 {/* PRICING */}
 
-<section id="pricing" className="py-24 px-6">
 
-<h2 className="text-4xl font-bold text-center mb-12 text-indigo-600">Pricing</h2>
-
-<div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-{PRICING.map((p,i)=>(
-
-<div key={i} className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl text-center">
-
-<h3 className="font-semibold text-lg">{p.name}</h3>
-
-<p className="line-through text-red-500">{p.market}</p>
-
-<p className="text-3xl font-bold text-indigo-600">{p.price}</p>
-
-<ul className="mt-4 space-y-2 text-sm">
-
-{p.features.map((f,j)=>(
-
-<li key={j} className="flex justify-center gap-2"><Check size={16}/> {f}</li>
-
-))}
-
-</ul>
-
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
-{/* DOMAIN */}
-
-<section className="py-24 bg-slate-100">
-
-<h2 className="text-4xl font-bold text-center mb-12">Domain Pricing and Hosting</h2>
-
-<div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
-
-{DOMAINS.map((d,i)=>(
-
-<div key={i} className="bg-white p-8 rounded-3xl shadow text-center">
-
-<Globe className="mx-auto text-indigo-600"/>
-
-<h3 className="text-2xl font-bold mt-3">{d.name}</h3>
-
-<p className="text-indigo-600">{d.price}</p>
-
-</div>
-
-))}
-
-</div>
-
-</section>
 
 
 {/* CONTACT */}
@@ -803,12 +491,12 @@ className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
 <div className="flex justify-center gap-6 mb-6">
 
 <a href="https://github.com/MohammedKhan-star"><Github/></a>
-<a href="https://www.linkedin.com/company/projectworksstudio/"><Linkedin/></a>
+<a href="https://www.linkedin.com/search/results/all/?keywords=STACKRA%20TECHNOLOGIES%20Software%20Web%20%26%20AI%20Solutions&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A112681182&position=0"><Linkedin/></a>
 <a href="https://www.instagram.com/projectworks_studio/"><Instagram/></a>
 
 </div>
 
-<p>© {new Date().getFullYear()} ProjectWorksStudio — Built by Mohammed Khan</p>
+<p>© {new Date().getFullYear()} STACKRA TECHNOLOGIES — Designed by Mohammed Khan</p>
 
 </footer>
 
