@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
@@ -6,7 +7,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://stackratechnologies.com"),
 
   title: {
-    default: "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
+    default:
+      "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
     template: "%s | STACKRA TECHNOLOGIES",
   },
 
@@ -14,7 +16,6 @@ export const metadata: Metadata = {
     "STACKRA TECHNOLOGIES is a modern software and AI solutions company helping startups and businesses build scalable, high-performance websites, SaaS platforms, AI applications, and custom software solutions.",
 
   keywords: [
-    // Brand
     "STACKRA TECHNOLOGIES",
     "Stackra Technologies",
     "stackra technologies",
@@ -22,7 +23,6 @@ export const metadata: Metadata = {
     "Mohammed Khan Software Engineer",
     "Mohammed Khan Full Stack Developer",
 
-    // Core Services
     "Software Development Company",
     "Web Development Company",
     "AI Solutions Company",
@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     "API Development",
     "Business Website Development",
 
-    // Technologies
     "Next.js",
     "React.js",
     "Node.js",
@@ -46,7 +45,6 @@ export const metadata: Metadata = {
     "TypeScript",
     "Tailwind CSS",
 
-    // AI
     "AI Development",
     "AI Powered Applications",
     "AI Automation",
@@ -54,7 +52,6 @@ export const metadata: Metadata = {
     "Generative AI",
     "Machine Learning Solutions",
 
-    // Client Intent
     "Hire Full Stack Developer",
     "Hire MERN Stack Developer",
     "Hire Next.js Developer",
@@ -63,7 +60,6 @@ export const metadata: Metadata = {
     "Custom Web Application Development",
     "Startup Technology Partner",
 
-    // Local SEO
     "Software Company India",
     "Web Development Company India",
     "AI Company India",
@@ -82,6 +78,10 @@ export const metadata: Metadata = {
   applicationName: "STACKRA TECHNOLOGIES",
   category: "Technology",
 
+  alternates: {
+    canonical: "https://stackratechnologies.com",
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -95,7 +95,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
+    title:
+      "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
     description:
       "Building scalable websites, AI applications, SaaS products, and custom software solutions.",
     url: "https://stackratechnologies.com",
@@ -112,14 +113,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#4f46e5",
+};
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className="bg-slate-50 text-slate-900 antialiased"
+      >
         <Navbar />
         <main className="min-h-screen pt-4">
           {children}
