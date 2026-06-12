@@ -13,7 +13,7 @@ import {
   Utensils,
   Store,
   Globe,
-  Menu,1
+  Menu,
   X,
   Github,
   Linkedin,
@@ -42,7 +42,7 @@ function Navbar() {
         <Link href="/" className="flex items-center gap-2 border-color-#000 md:gap-3">
           <Image
             src="/logo/logo5.png"
-            alt="STACKRA TECHNOLOGIES Software Web & AI Solutions"
+            alt="ProjectWorksStudio Logo"
             width={40}
             height={40}
             className="rounded-full object-cover border-color-#000"
@@ -117,7 +117,22 @@ const PROJECTS = [
 ];
 const TECH = ["Next.js","React","Node.js","MongoDB","AI","Stripe"];
 
+const PRICING = [
+{name:"Basic Website",price:"₹999",market:"₹5000",features:["1 Page","Responsive","Contact Form"]},
+{name:"Portfolio",price:"₹1499",market:"₹8000",features:["3 Pages","Projects","SEO"]},
+{name:"Portfolio Pro",price:"₹2999",market:"₹15000",features:["Animations","Analytics","5 Pages"]},
+{name:"Business Landing Pro",price:"₹11999",market:"₹25000",features:["Lead Forms","Maps","WhatsApp"]},
+{name:"E-Commerce",price:"₹24999",market:"₹60000",features:["Products","Payments","Admin"]},
+{name:"Full Stack Application",price:"₹44999",market:"₹100000",features:["Database","API","Auth"]}
+];
 
+const DOMAINS = [
+  { name: ".com", price: "₹999 / year" },
+  { name: ".in", price: "₹699 / year" },
+  { name: ".dev", price: "₹3,499 / year" },
+  { name: ".tech", price: "₹2,999 / year" },
+  { name: ".store", price: "₹2,499 / year" },
+];
 
 /* ================= PAGE ================= */
 export default function LandingPage() {
@@ -398,35 +413,7 @@ export default function LandingPage() {
   </div>
 </section>
 
-<<<<<<< HEAD
 
-=======
-      {/* SERVICES */}
-
-
-    
-      <section id="services" className="py-24 max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Our Services
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((s, i) => (
-            <motion.div key={i} whileHover={{ y: -6 }} className="bg-white p-8 rounded-3xl shadow">
-              <div className="text-indigo-600 mb-4">{s.icon}</div>
-              <h3 className="font-semibold text-xl">{s.title}</h3>
-              <p className="text-slate-600 mt-2">{s.desc}</p>
-              <ul className="mt-4 space-y-2">
-                {s.points.map((p, j) => (
-                  <li key={j} className="flex gap-2 items-center">
-                    <Check size={18} className="text-emerald-500" /> {p}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </section>
->>>>>>> 153a1918ed00a69033997f5707dbfd8f2a48f39c
 
       {/* PROJECTS */}
       <section id="project" className="py-24 bg-slate-100">
@@ -509,14 +496,8 @@ className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
 
 </div>
 
-<<<<<<< HEAD
 <p>© {new Date().getFullYear()} STACKRA TECHNOLOGIES — Designed by Mohammed Khan</p>
 
-=======
-<p>
-  © {new Date().getFullYear()} DevCore Agency — Founder & Full Stack Developer Mohammed Khan
-</p>
->>>>>>> 153a1918ed00a69033997f5707dbfd8f2a48f39c
 </footer>
 
 
