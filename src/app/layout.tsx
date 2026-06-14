@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stackratechnologies.com"),
+  metadataBase: new URL("hhttps://stackratechnologies.mohammedkhan.dev/"),
 
   title: {
     default:

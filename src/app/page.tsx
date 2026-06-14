@@ -247,6 +247,8 @@ export default function LandingPage() {
       <Link href="#contact" className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">
         Free Proposal
       </Link>
+      //social media link
+
     </div>
   </div>
 
@@ -492,7 +494,8 @@ className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
 
 <a href="https://github.com/MohammedKhan-star"><Github/></a>
 <a href="https://www.linkedin.com/search/results/all/?keywords=STACKRA%20TECHNOLOGIES%20Software%20Web%20%26%20AI%20Solutions&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A112681182&position=0"><Linkedin/></a>
-<a href="https://www.instagram.com/projectworks_studio/"><Instagram/></a>
+<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
+
 
 </div>
 
