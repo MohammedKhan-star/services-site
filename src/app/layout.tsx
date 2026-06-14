@@ -4,11 +4,11 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("hhttps://stackratechnologies.mohammedkhan.dev/"),
+  metadataBase: new URL("https://stackratechnologies.mohammedkhan.dev/"),
 
   title: {
     default:
-      "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
+      "STACKRA TECHNOLOGIES | Top Software Development & AI Company in India",
     template: "%s | STACKRA TECHNOLOGIES",
   },
 
@@ -111,6 +111,20 @@ export const metadata: Metadata = {
     description:
       "Software, Web Development & AI Solutions Company",
   },
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "STACKRA TECHNOLOGIES",
+      url: "https://stackratechnologies.mohammedkhan.dev",
+      logo: "https://stackratechnologies.mohammedkhan.dev/logo/logo5.png",
+      sameAs: [
+        "https://www.instagram.com/stackra_technologies",
+        "https://www.linkedin.com/company/stackra-technologies",
+        "https://github.com/MohammedKhan-star"
+      ]
+    })
+  }
 };
 
 export const viewport: Viewport = {
