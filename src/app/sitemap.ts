@@ -1,5 +1,5 @@
 export default function sitemap() {
 return [
-{ url: 'https://projectworksstudio.mohammedkhan.dev', lastModified: new Date() }
+{ url: 'https://stackratechnologies.mohammedkhan.dev/', lastModified: new Date() }
 ]
 }

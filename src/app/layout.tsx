@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Mohammed Khan",
-      url: "https://stackratechnologies.com",
+      url: "https://stackratechnologies.mohammedkhan.dev/",
     },
   ],
 
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   category: "Technology",
 
   alternates: {
-    canonical: "https://stackratechnologies.com",
+    canonical: "https://stackratechnologies.mohammedkhan.dev/",
   },
 
   robots: {
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
       "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
     description:
       "Building scalable websites, AI applications, SaaS products, and custom software solutions.",
-    url: "https://stackratechnologies.com",
+    url: "https://stackratechnologies.mohammedkhan.dev/",
     siteName: "STACKRA TECHNOLOGIES",
     locale: "en_US",
     type: "website",
