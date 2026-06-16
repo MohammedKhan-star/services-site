@@ -123,6 +123,11 @@ export default function RootLayout({
                 "https://www.instagram.com/stackra_technologies",
                 "https://www.linkedin.com/company/stackra-technologies",
                 "https://github.com/MohammedKhan-star",
+                "https://stackratechnologies.com/",
+                "https://www.facebook.com/stackratechnologies",
+                "https://www.twitter.com/stackra_technologies",
+                "https://www.youtube.com/@stackratechnologies?si=9coHbkR92wY13LWH&sttick=0"
+
               ],
               contactPoint: {
                 "@type": "ContactPoint",
