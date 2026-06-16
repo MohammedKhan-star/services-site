@@ -19,125 +19,318 @@ import {
   Linkedin,
   Instagram,
   MessageCircle,
+  Phone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+
+const roles = [
+  "Building powerful websites that drive business growth",
+  "Transforming ideas into high-performance digital solutions",
+  "Fast, secure, and scalable web applications",
+  "Helping startups establish a strong digital presence",
+  "Professional websites for educational institutions & enterprises",
+  "Custom full-stack applications built with modern technologies",
+];
 
 /* ================= NAVBAR ================= */
 function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Smooth scroll
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
     setOpen(false);
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-#fffff border-b backdrop-blur border-b">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+      <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 border-color-#000 md:gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo/logo5.png"
-            alt="ProjectWorksStudio Logo"
-            width={40}
-            height={40}
-            className="rounded-full object-cover border-color-#000"
+            alt="STACKRA TECHNOLOGIES Logo"
+            width={48}
+            height={48}
+            className="rounded-xl object-cover"
+            priority
           />
-          <span className="hidden md:inline text-2xl font-extrabold text-indigo-600">
-            STACKRA<span className="text-gray-900">TECHNOLOGIES</span>
-          </span>
+          <div className="hidden md:block">
+            <span className="text-2xl font-bold tracking-tight text-gray-900">
+              STACKRA
+            </span>
+            <span className="text-2xl font-bold tracking-tight text-indigo-600">
+              TECHNOLOGIES
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 font-medium">
-          {["about", "services", "project", "pricing", "contact"].map((id) => (
+        <div className="hidden md:flex items-center gap-10 font-medium text-gray-700">
+          {[
+            { label: "About", id: "about" },
+            { label: "Services", id: "services" },
+            { label: "Projects", id: "projects" },
+            { label: "Pricing", id: "pricing" },
+            { label: "Contact", id: "contact" },
+          ].map((item) => (
             <button
-              key={id}
-              onClick={() => handleScroll(id)}
-              className="hover:text-indigo-600"
+              key={item.id}
+              onClick={() => handleScroll(item.id)}
+              className="hover:text-indigo-600 transition-colors duration-200"
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {item.label}
             </button>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="hidden md:block">
+          <a
+            href="#contact"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-2xl font-medium transition-all duration-200 flex items-center gap-2"
+          >
+            Get Free Proposal
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-3">
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-gray-700"
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </nav>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t py-6 flex flex-col items-center gap-4 transition-all duration-300">
-          {["about", "services", "project", "pricing", "contact"].map((id) => (
+        <div className="md:hidden border-t bg-white py-6 px-6 space-y-4">
+          {[
+            { label: "About", id: "about" },
+            { label: "Services", id: "services" },
+            { label: "Projects", id: "projects" },
+            { label: "Pricing", id: "pricing" },
+            { label: "Contact", id: "contact" },
+          ].map((item) => (
             <button
-              key={id}
-              onClick={() => handleScroll(id)}
-              className="text-lg font-medium hover:text-indigo-600"
+              key={item.id}
+              onClick={() => handleScroll(item.id)}
+              className="block w-full text-left py-3 text-lg font-medium text-gray-700 hover:text-indigo-600"
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {item.label}
             </button>
           ))}
+          <a
+            href="#contact"
+            className="block w-full text-center bg-indigo-600 text-white py-3 rounded-2xl font-medium mt-4"
+          >
+            Get Free Proposal
+          </a>
         </div>
       )}
     </header>
   );
 }
 
-/* ================= DATA ================= */
-const roles = [
-  "We build powerful websites that grow your business",
-  "Turn your idea into a powerful website",
-  "Fast, secure, and modern web applications",
-  "Helping startups build their digital presence",
-  "Professional websites for schools and businesses",
-  "Custom web applications built for real users",
-  ];
+/* ================= SERVICES DATA ================= */
+const SERVICES = [
+  {
+    title: "Portfolio & Personal Websites",
+    icon: <Store className="w-8 h-8" />,
+    desc: "Stunning, fast-loading portfolio websites that showcase your work and attract opportunities.",
+    points: [
+      "Custom Modern Design",
+      "Project Showcase",
+      "Resume Integration",
+      "Contact & Inquiry Forms",
+      "Mobile-First Responsive",
+      "SEO Optimized",
+    ],
+  },
+  {
+    title: "Business & Corporate Websites",
+    icon: <Users className="w-8 h-8" />,
+    desc: "Professional websites designed to convert visitors into loyal customers.",
+    points: [
+      "Premium UI/UX Design",
+      "Advanced SEO Optimization",
+      "Google Maps & Location",
+      "WhatsApp Integration",
+      "Lead Generation Forms",
+      "Lightning Fast Performance",
+    ],
+  },
+  {
+    title: "Education & School Portals",
+    icon: <GraduationCap className="w-8 h-8" />,
+    desc: "Comprehensive digital platforms for schools, colleges, and training institutes.",
+    points: [
+      "Online Admissions System",
+      "Student & Course Management",
+      "Result & Dashboard Portals",
+      "Admin Control Panel",
+      "Secure Authentication",
+      "Mobile Responsive",
+    ],
+  },
+  {
+    title: "Restaurant & Food Delivery",
+    icon: <Utensils className="w-8 h-8" />,
+    desc: "Beautiful online presence for restaurants with digital menus and ordering systems.",
+    points: [
+      "Digital Menu System",
+      "Online Table Booking",
+      "Food Ordering Integration",
+      "Google Maps Integration",
+      "WhatsApp Ordering",
+      "Mobile Optimized",
+    ],
+  },
+  {
+    title: "E-Commerce Solutions",
+    icon: <ShoppingCart className="w-8 h-8" />,
+    desc: "Full-featured online stores with secure payments and inventory management.",
+    points: [
+      "Product Catalog Management",
+      "Secure Payment Gateway",
+      "Order Tracking System",
+      "Advanced Admin Dashboard",
+      "Multi-Vendor Ready",
+      "SEO & Performance Optimized",
+    ],
+  },
+  {
+    title: "Custom SaaS & Web Applications",
+    icon: <Code className="w-8 h-8" />,
+    desc: "Enterprise-grade custom software and SaaS platforms tailored to your needs.",
+    points: [
+      "Next.js & MERN Stack",
+      "Secure Authentication",
+      "REST & GraphQL APIs",
+      "Database Architecture",
+      "Cloud Deployment",
+      "AI/ML Integrations",
+    ],
+  },
+];
 
-const SERVICES = [ { title: "Portfolio Websites", icon: <Store />, desc: "Modern personal and professional portfolio websites for developers, freelancers and job seekers.", points: [ "Custom UI Design", "Projects Showcase", "Resume Download", "Contact Form", "Mobile Responsive", "SEO Ready" ] }, { title: "Business Websites", icon: <Users />, desc: "Professional websites designed to help businesses attract more customers and grow online.", points: [ "Professional Design", "SEO Optimization", "Google Maps Integration", "WhatsApp Chat Button", "Fast Loading", "Lead Generation Forms" ] }, { title: "Education Websites", icon: <GraduationCap />, desc: "Complete websites for schools, colleges and institutes with student management features.", points: [ "Admissions Forms", "Courses Management", "Student Dashboard", "Results Portal", "Admin Panel", "Mobile Friendly" ] }, { title: "Restaurant & Food Websites", icon: <Utensils />, desc: "Beautiful websites for restaurants, cafes and food businesses to attract more customers.", points: [ "Digital Menu", "Online Orders", "Table Booking", "Google Maps Location", "Mobile Responsive", "WhatsApp Orders" ] }, { title: "E-Commerce Stores", icon: <ShoppingCart />, desc: "Complete online stores with product management and secure payment systems.", points: [ "Product Management", "Shopping Cart", "Online Payment Gateway", "Order Tracking", "Admin Dashboard", "SEO Optimized" ] }, { title: "Custom Full-Stack Applications", icon: <Code />, desc: "Advanced web applications and SaaS platforms built using modern technologies.", points: [ "MERN / Next.js Development", "Authentication System", "REST APIs", "Database Integration", "Admin Dashboard", "Cloud Deployment" ] } ];
-
-
-
+/* ================= PROJECTS ================= */
 const PROJECTS = [
-{title:"Portfolio",image:"/projects/Potfolio.png",live:"https://mohammedkhan.dev/",tech:["Next.js","SEO"]},
-{title:"School Result Portal",image:"/projects/Schoolresultportal.png",live:"https://tssscpreresult.vercel.app/",tech:["Next.js","SEO"]},
-{title:"Business Landing Page",image:"/projects/Businesslandingpage.png",live:"https://stackratechnologies.com/",tech:["Next.js","SEO"]},
-{title:"AI Food Delivery",image:"/projects/food.png",live:"https://food-delivery-app-zomoto.vercel.app/",tech:["MERN","AI"]},
-{title:"Learning Management System",image:"/projects/LMS5.png",live:"https://lms-sandy-six.vercel.app/",tech:["MERN"]},
-{title:"AI E-Commerce",image:"/projects/AI Ecommerce25.png",live:"https://gocart-xqlp.vercel.app/",tech:["Next.js","AI"]},
-{title:"YouTube Clone",image:"/projects/Youtubeclone1.png",live:"https://youtube-clone-4-glwf.onrender.com/",tech:["React"]},
-{title:"NXTTRENDZ Store",image:"/projects/ecommerce.png",live:"https://khannxttreandz.ccbp.tech/",tech:["React"]},
+  {
+    title: "Professional Portfolio",
+    image: "/projects/Potfolio.png",
+    live: "https://mohammedkhan.dev/",
+    tech: ["Next.js", "Framer Motion", "SEO"],
+  },
+  {
+    title: "School Result Portal",
+    image: "/projects/Schoolresultportal.png",
+    live: "https://tssscpreresult.vercel.app/",
+    tech: ["Next.js", "Tailwind", "SEO"],
+  },
+  {
+    title: "Corporate Landing Page",
+    image: "/projects/Businesslandingpage.png",
+    live: "https://stackratechnologies.com/",
+    tech: ["Next.js", "SEO"],
+  },
+  {
+    title: "AI Food Delivery Platform",
+    image: "/projects/food.png",
+    live: "https://food-delivery-app-zomoto.vercel.app/",
+    tech: ["MERN", "AI"],
+  },
+  {
+    title: "Learning Management System",
+    image: "/projects/LMS5.png",
+    live: "https://lms-sandy-six.vercel.app/",
+    tech: ["MERN Stack"],
+  },
+  {
+    title: "AI Powered E-Commerce",
+    image: "/projects/AI Ecommerce25.png",
+    live: "https://gocart-xqlp.vercel.app/",
+    tech: ["Next.js", "AI"],
+  },
 ];
-const TECH = ["Next.js","React","Node.js","MongoDB","AI","Stripe"];
 
+/* ================= PRICING ================= */
 const PRICING = [
-{name:"Basic Website",price:"₹999",market:"₹5000",features:["1 Page","Responsive","Contact Form"]},
-{name:"Portfolio",price:"₹1499",market:"₹8000",features:["3 Pages","Projects","SEO"]},
-{name:"Portfolio Pro",price:"₹2999",market:"₹15000",features:["Animations","Analytics","5 Pages"]},
-{name:"Business Landing Pro",price:"₹11999",market:"₹25000",features:["Lead Forms","Maps","WhatsApp"]},
-{name:"E-Commerce",price:"₹24999",market:"₹60000",features:["Products","Payments","Admin"]},
-{name:"Full Stack Application",price:"₹44999",market:"₹100000",features:["Database","API","Auth"]}
+  {
+    name: "Starter Website",
+    price: "₹9,999",
+    market: "₹25,000",
+    features: [
+      "5 Pages",
+      "Mobile Responsive",
+      "Contact Form",
+      "Basic SEO",
+      "1 Month Support",
+    ],
+  },
+  {
+    name: "Professional Portfolio",
+    price: "₹14,999",
+    market: "₹35,000",
+    features: [
+      "Custom Design",
+      "Project Showcase",
+      "Animations",
+      "SEO + Analytics",
+      "3 Months Support",
+    ],
+  },
+  {
+    name: "Business Growth Package",
+    price: "₹24,999",
+    market: "₹60,000",
+    features: [
+      "Lead Generation",
+      "WhatsApp Integration",
+      "Google Maps",
+      "Advanced SEO",
+      "6 Months Support",
+    ],
+  },
+  {
+    name: "E-Commerce Store",
+    price: "₹44,999",
+    market: "₹1,20,000",
+    features: [
+      "Product Management",
+      "Payment Gateway",
+      "Admin Dashboard",
+      "Order Tracking",
+      "1 Year Support",
+    ],
+  },
+  {
+    name: "Enterprise Solution",
+    price: "Custom",
+    market: "₹2,00,000+",
+    features: [
+      "Full Custom Development",
+      "SaaS Features",
+      "AI Integration",
+      "Scalable Architecture",
+      "Dedicated Support",
+    ],
+  },
 ];
 
-const DOMAINS = [
-  { name: ".com", price: "₹999 / year" },
-  { name: ".in", price: "₹699 / year" },
-  { name: ".dev", price: "₹3,499 / year" },
-  { name: ".tech", price: "₹2,999 / year" },
-  { name: ".store", price: "₹2,499 / year" },
-];
-
-/* ================= PAGE ================= */
-export default function LandingPage() {
+export default function Home() {
   const [text, setText] = useState("");
-  const [billing, setBilling] = useState("monthly");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -155,9 +348,9 @@ export default function LandingPage() {
           setText("");
           setCharIndex(0);
           setRoleIndex((prev) => (prev + 1) % roles.length);
-        }, 2000);
+        }, 2500);
       }
-    }, 55);
+    }, 50);
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -165,278 +358,222 @@ export default function LandingPage() {
   }, [charIndex, roleIndex, isPaused]);
 
   return (
-    <main className="mt-14">
+    <main className="min-h-screen overflow-hidden">
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative pt-50 pb-32 text-center text-white px- overflow-hidden">
-
-  {/* Background Image */}
-  <div className="absolute inset-0">
-    <Image
-      src="/bg/hero-bg.png"   // 👉 put your image in public/bg/hero-bg.jpg
-      alt="DevCore Background"
-      fill
-      priority
-      className="object-cover"
-    />
-    
-    {/* Dark Overlay (important for readability) */}
-    <div className="absolute inset-0"></div>
-  </div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <motion.h1
-      initial={{ opacity: 0, y: -25 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-4xl  md:text-5xl font-bold text-shadow-amber-400"
-    >
-      STACKRA TECHNOLOGIES
-    </motion.h1>
-
-    <motion.h2
-      initial={{ opacity: 0, y: -25 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-lg md:text-2xl font-medium mt-2 text-amber-200"
-    >
-      Your Web Development Partner
-    </motion.h2>
-    <motion.p
-      initial={{ opacity: 0, y: -25 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-lg md:text-2xl font-medium mt-2"
-    >
-      We offer a wide range of services to help you build your online presence and grow your business.
-    </motion.p>
-    <motion.p
-      initial={{ opacity: 0, y: -25 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-lg md:text-2xl font-medium mt-2"
-    >
-      From portfolio websites to full-stack applications, we have the expertise to bring your vision to life.
-    </motion.p>
-
-
-
-    {/* Typing effect */}
-    <motion.div
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      className="mt-6 h-14 flex items-center justify-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.6 }}
-    >
-      <p className="text-lg md:text-2xl font-medium
-        bg-gradient-to-r from-white via-cyan-200 to-indigo-100
-        bg-clip-text text-transparent
-        drop-shadow-[0_2px_10px_rgba(255,255,255,0.35)]">
-        {text}
-        <span className="ml-1 animate-blink">|</span>
-      </p>
-    </motion.div>
-
-    <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-     
-
-      <Link href="#project" className="bg-indigo-700 px-6 py-3 rounded-xl shadow hover:scale-105 transition">
-        Project Works
-      </Link>
-
-      <Link href="#contact" className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">
-        Free Proposal
-      </Link>
-  </div>
-  </div>
-
-</section>
-
-      {/* ABOUT */}
-<section id="about" className="relative py-28 px-6 overflow-hidden">
-
-  {/* ===== Background Image ===== */}
-  <div className="absolute inset-0">
-    <Image
-      src="/bg/hero-bg.png"  // reuse same bg for consistency
-      alt="Background"
-      fill
-      className="object-cover"
-    />
-    <div className="absolute inset-0 bg-white/90 backdrop-blur-[4px]"></div>
-  </div>
-
-  <div className="relative z-10 max-w-7xl mx-auto space-y-20">
-
-    {/* ================= TOP ABOUT ================= */}
-    <div className="grid md:grid-cols-2 gap-16 items-center">
-
-      {/* LEFT */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-6">
-          About 
-        </h2>
-
-        <p className="text-slate-700 text-lg leading-relaxed mb-5">
-           STACKRA TECHNOLOGIES is a modern <span className="font-semibold text-slate-900">Software & AI Solutions company</span> focused on building scalable, high-performance digital products.
-        </p>
-
-        <p className="text-slate-700 text-lg leading-relaxed mb-5">
-          We help startups and businesses transform their ideas into 
-          <span className="text-indigo-600 font-semibold"> powerful web applications</span> using modern technologies like Next.js, MERN stack, and AI integrations.
-        </p>
-
-        <p className="text-slate-700 text-lg leading-relaxed mb-6">
-          From idea → design → development → deployment, we handle everything with precision and speed.
-        </p>
-
-        <div className="flex flex-wrap gap-3">
-          {["Next.js", "MERN Stack", "AI Apps", "SEO Optimized", "Scalable Systems"].map((tag) => (
-            <span key={tag} className="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-sm font-medium">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* ===== UPGRADED FOUNDER CARD ===== */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-2xl"
-      >
-        {/* Top Profile */}
-        <div className="flex items-center gap-5">
+      {/* HERO SECTION */}
+      <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
+        <div className="absolute inset-0">
           <Image
-            src="/profile/profile3.jpg"
-            alt="Mohammed Khan"
-            width={100}
-            height={100}
-            className="rounded-full object-cover border-4 border-indigo-500 shadow"
+            src="/bg/hero-bg.png"
+            alt="Modern technology background"
+            fill
+            priority
+            className="object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+        </div>
 
-          <div>
-            <h3 className="text-xl font-bold text-gray-900">
-              Mohammed Khan
-            </h3>
-            <p className="text-sm text-indigo-600 font-medium">
-              Founder & Software Engineer
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 border border-white/20">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="text-sm font-medium tracking-widest">EST. 2024 • INDIA</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
+              Digital Excellence.<br />
+              Delivered.
+            </h1>
+
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
+              We craft high-performance websites, SaaS platforms, and AI-powered solutions that help businesses scale in the digital age.
             </p>
-            <p className="text-xs text-gray-500">
-              STACKRA TECHNOLOGIES Software Web & AI Solution
+          </motion.div>
+
+          {/* Typing Effect */}
+          <motion.div
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="h-20 flex items-center justify-center mb-10"
+          >
+            <p className="text-2xl md:text-3xl font-medium text-white/90 min-h-[3.5rem]">
+              {text}
+              <span className="animate-pulse">|</span>
             </p>
+          </motion.div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#projects"
+              className="bg-white text-gray-900 hover:bg-gray-100 px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95"
+            >
+              View Our Work
+            </Link>
+            <a
+              href="#contact"
+              className="border border-white/70 hover:bg-white/10 px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95"
+            >
+              Get Your Free Proposal
+            </a>
+          </div>
+
+          <div className="mt-16 flex justify-center gap-8 text-sm opacity-75">
+            <div>Next.js</div>
+            <div>MERN</div>
+            <div>AI Integration</div>
+            <div>Enterprise Ready</div>
           </div>
         </div>
+      </section>
 
-        {/* Divider */}
-        <div className="my-5 border-t"></div>
-
-        {/* Description */}
-        <p className="text-sm text-gray-700 leading-relaxed">
-          Specialized in building scalable, production-ready web applications using modern technologies like React, Next.js, Node.js, and AI integrations. Focused on delivering high-performance solutions that drive real business growth.
-        </p>
-
-        {/* Skills */}
-        <div className="mt-5 flex flex-wrap gap-2">
-          {["React", "Next.js", "Node.js", "MongoDB", "AI"].map((skill) => (
-            <span key={skill} className="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <a
-          href="https://wa.me/9542355897"
-          target="_blank"
-          className="mt-6 block text-center bg-indigo-600 text-white py-2 rounded-xl text-sm font-medium hover:bg-indigo-700 transition"
-        >
-          Contact
-        </a>
-      </motion.div>
-    </div>
-
-    {/* ================= STATS ================= */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-    >
-      {[
-        { value: "10+", label: "Projects Delivered" },
-        { value: "5+", label: "Happy Clients" },
-        { value: "1+", label: "Years Experience" },
-        { value: "100%", label: "Client Satisfaction" },
-      ].map((stat, i) => (
-        <div key={i} className="bg-white/80 backdrop-blur p-6 rounded-2xl shadow">
-          <h3 className="text-3xl font-bold text-indigo-600">{stat.value}</h3>
-          <p className="text-sm text-slate-600 mt-2">{stat.label}</p>
-        </div>
-      ))}
-    </motion.div>
-
-    {/* ================= PROCESS ================= */}
-    <div className="text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
-        How We Work
-      </h2>
-
-      <div className="grid md:grid-cols-4 gap-8">
-        {[
-          { step: "01", title: "Planning", desc: "Understanding your idea and requirements clearly." },
-          { step: "02", title: "Design", desc: "Creating modern UI/UX focused layouts." },
-          { step: "03", title: "Development", desc: "Building scalable and fast applications." },
-          { step: "04", title: "Launch", desc: "Deploying and optimizing for performance." },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ y: -8 }}
-            className="bg-white/90 backdrop-blur p-8 rounded-3xl shadow-lg"
-          >
-            <h3 className="text-indigo-600 text-2xl font-bold">{item.step}</h3>
-            <h4 className="mt-3 font-semibold text-lg">{item.title}</h4>
-            <p className="text-sm text-slate-600 mt-2">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-      {/* PROJECTS */}
-      <section id="project" className="py-24 bg-slate-100">
+      {/* ABOUT SECTION */}
+      <section id="about" className="py-28 bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Project Works
-          </h2>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="uppercase tracking-[3px] text-indigo-600 font-medium mb-4">ABOUT US</div>
+              <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-8">
+                Your Trusted Technology Partner
+              </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROJECTS.map((p, i) => (
-              <motion.div key={i} whileHover={{ scale: 1.03 }} className="bg-white rounded-3xl shadow overflow-hidden">
-                <Image src={p.image} alt={p.title} width={500} height={300} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <h3 className="font-semibold">{p.title}</h3>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {p.tech.map((t, j) => (
-                      <span key={j} className="bg-indigo-100 text-indigo-600 text-xs px-3 py-1 rounded-full">
-                        {t}
+              <div className="space-y-6 text-lg text-gray-600">
+                <p>
+                  STACKRA TECHNOLOGIES is a premium software development company specializing in building modern, scalable, and high-converting digital experiences.
+                </p>
+                <p>
+                  With expertise in Next.js, MERN stack, AI integrations, and cloud architecture, we deliver solutions that not only look exceptional but drive measurable business results.
+                </p>
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-8">
+                {[
+                  { number: "50+", label: "Projects Delivered" },
+                  { number: "98%", label: "Client Retention" },
+                  { number: "24", label: "Months Average Partnership" },
+                  { number: "4.9/5", label: "Average Rating" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <div className="text-4xl font-bold text-indigo-600">{stat.number}</div>
+                    <div className="text-gray-600">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Founder Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 border border-gray-100 rounded-3xl p-10"
+            >
+              <Image
+                src="/profile/profile3.jpg"
+                alt="Mohammed Khan - Founder"
+                width={120}
+                height={120}
+                className="rounded-2xl mb-8"
+              />
+              <h3 className="text-2xl font-semibold mb-1">Mohammed Khan</h3>
+              <p className="text-indigo-600 font-medium">Founder & Principal Engineer</p>
+
+              <p className="mt-6 text-gray-600 leading-relaxed">
+                Passionate about building technology that matters. With deep expertise in full-stack development and modern web architecture, I lead every project with a focus on quality, performance, and long-term business impact.
+              </p>
+
+              <a
+                href="https://wa.me/9542355897"
+                target="_blank"
+                className="mt-8 inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Schedule a Call
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section id="services" className="py-28 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="uppercase text-indigo-600 tracking-widest text-sm font-medium">EXPERTISE</div>
+            <h2 className="text-5xl font-bold mt-3">Services We Offer</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="bg-white p-10 rounded-3xl border border-gray-100 hover:border-indigo-200 transition-all group"
+              >
+                <div className="text-indigo-600 mb-6">{service.icon}</div>
+                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-8">{service.desc}</p>
+
+                <ul className="space-y-3">
+                  {service.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700">
+                      <Check className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section id="projects" className="py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold">Featured Projects</h2>
+            <p className="mt-4 text-xl text-gray-600">Real results for real businesses</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PROJECTS.map((project, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -8 }}
+                className="group bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all"
+              >
+                <div className="relative h-64">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="font-semibold text-2xl mb-4">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="text-xs bg-gray-100 px-3 py-1 rounded-full">
+                        {tech}
                       </span>
                     ))}
                   </div>
-                  <a href={p.live} target="_blank" rel="noopener noreferrer" className="block mt-4 bg-indigo-600 text-white py-2 rounded-xl text-center">
-                    View Live
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full bg-gray-900 text-white py-3 rounded-2xl hover:bg-black transition"
+                  >
+                    View Live Project →
                   </a>
                 </div>
               </motion.div>
@@ -445,73 +582,106 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PRICING */}
-  {/* TECHNOLOGY */}
+      {/* PRICING SECTION */}
+      <section id="pricing" className="py-28 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold">Transparent Pricing</h2>
+            <p className="text-xl text-gray-600 mt-4">Choose the perfect package for your needs</p>
+          </div>
 
-<section className="py-24 bg-slate-100 text-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRICING.map((plan, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-3xl p-10 border ${index === 2 ? "border-indigo-600 ring-1 ring-indigo-600" : "border-gray-100"} relative`}
+              >
+                {index === 2 && (
+                  <div className="absolute -top-3 right-6 bg-indigo-600 text-white text-xs font-medium px-4 py-1 rounded-full">
+                    MOST POPULAR
+                  </div>
+                )}
 
-<h2 className="text-4xl font-bold mb-10">Technology Stack</h2>
+                <h3 className="text-2xl font-semibold mb-2">{plan.name}</h3>
+                <div className="flex items-baseline gap-2 mb-8">
+                  <span className="text-5xl font-bold">{plan.price}</span>
+                  {plan.price !== "Custom" && <span className="text-gray-500">one-time</span>}
+                </div>
 
-<div className="flex flex-wrap justify-center gap-6">
+                <ul className="space-y-4 mb-10">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-emerald-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-{TECH.map((t,i)=>(
+                <a
+                  href="#contact"
+                  className="block text-center py-4 rounded-2xl font-semibold border border-gray-900 hover:bg-gray-900 hover:text-white transition"
+                >
+                  Get Started
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-<span key={i} className="bg-white px-6 py-3 rounded-full shadow">{t}</span>
+      {/* CONTACT SECTION */}
+      <section id="contact" className="py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-bold mb-6">Let&apos;s Build Something Great Together</h2>
+          <p className="text-xl text-gray-600 mb-12">
+            Fill out the form below and our team will get back to you within 24 hours with a custom proposal.
+          </p>
 
-))}
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSebe1iZL2ixmwghyEXrnnESejV3_cGa-0pGFiL0CHbQZJt2ig/viewform"
+            className="w-full h-[720px] border-0 rounded-3xl shadow-xl"
+            title="Project Inquiry Form"
+          />
+        </div>
+      </section>
 
-</div>
+      {/* FOOTER */}
+      <footer className="bg-gray-950 text-gray-400 py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Image src="/logo/logo5.png" alt="STACKRA TECHNOLOGIES" width={50} height={50} className="rounded-xl" />
+              <span className="text-white font-bold text-2xl tracking-tight">STACKRA TECHNOLOGIES</span>
+            </div>
+            <p className="max-w-md">
+              Premium web development and AI solutions company based in India. Building the future of digital experiences.
+            </p>
+          </div>
 
-</section>
+          <div className="flex flex-col md:items-end gap-8">
+            <div className="flex gap-6">
+              <a href="https://www.linkedin.com/company/stackra-technologies" target="_blank" className="hover:text-white transition"><Linkedin /></a>
+              <a href="https://www.instagram.com/stackra_technologies" target="_blank" className="hover:text-white transition"><Instagram /></a>
+              <a href="https://wa.me/9542355897" target="_blank" className="hover:text-white transition"><Phone /></a>
+            </div>
 
+            <div>
+              <p>© {new Date().getFullYear()} STACKRA TECHNOLOGIES. All Rights Reserved.</p>
+              <p className="text-xs mt-2">Designed & Developed by Mohammed Khan</p>
+            </div>
+          </div>
+        </div>
+      </footer>
 
-{/* PRICING */}
-
-
-
-
-{/* CONTACT */}
-
-<section id="contact" className="py-24 text-center">
-
-<h2 className="text-4xl font-bold text-indigo-600 mb-6">Get Free Proposal</h2>
-
-<iframe
-src="https://docs.google.com/forms/d/e/1FAIpQLSebe1iZL2ixmwghyEXrnnESejV3_cGa-0pGFiL0CHbQZJt2ig/viewform"
-className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
-/>
-
-</section>
-
-
-{/* FOOTER */}
-
-<footer className="bg-black text-gray-400 py-10 text-center">
-
-<div className="flex justify-center gap-6 mb-6">
-
-
-<a href="https://www.linkedin.com/search/results/all/?keywords=STACKRA%20TECHNOLOGIES%20Software%20Web%20%26%20AI%20Solutions&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A112681182&position=0"><Linkedin/></a>
-<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
-<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
-<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
-
-
-</div>
-
-<p>© {new Date().getFullYear()} STACKRA TECHNOLOGIES — Designed by Mohammed Khan</p>
-
-</footer>
-
-
-{/* WHATSAPP BUTTON */}
-
-<a
-href="https://wa.me/9542355897"
-className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition"
->
-<MessageCircle/>
-</a>
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/9542355897"
+        target="_blank"
+        className="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-50"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle size={28} />
+      </a>
     </main>
   );
 }
