@@ -371,7 +371,7 @@ export default function Home() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/10 to-white/10" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
