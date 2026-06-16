@@ -380,10 +380,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 border border-white/20">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-sm font-medium tracking-widest">EST. 2024 • INDIA</span>
-            </div>
+            
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
               Digital Excellence.<br />
