@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stackratechnologies.mohammedkhan.dev/"),
+  metadataBase: new URL("https://stackratechnologies.com"),
 
   title: {
     default:
@@ -17,59 +18,24 @@ export const metadata: Metadata = {
 
   keywords: [
     "STACKRA TECHNOLOGIES",
-    "Stackra Technologies",
-    "stackra technologies",
-    "Mohammed Khan",
-    "Mohammed Khan Software Engineer",
-    "Mohammed Khan Full Stack Developer",
-
     "Software Development Company",
     "Web Development Company",
     "AI Solutions Company",
     "Custom Software Development",
     "Full Stack Development",
-    "Website Design and Development",
-    "Enterprise Software Solutions",
-    "SaaS Development",
-    "Cloud Application Development",
-    "API Development",
-    "Business Website Development",
-
     "Next.js",
     "React.js",
     "Node.js",
-    "Express.js",
-    "MongoDB",
     "MERN Stack",
-    "JavaScript",
-    "TypeScript",
-    "Tailwind CSS",
-
     "AI Development",
-    "AI Powered Applications",
-    "AI Automation",
-    "Chatbot Development",
-    "Generative AI",
-    "Machine Learning Solutions",
-
-    "Hire Full Stack Developer",
-    "Hire MERN Stack Developer",
-    "Hire Next.js Developer",
-    "Hire React Developer",
-    "Professional Website Development",
-    "Custom Web Application Development",
-    "Startup Technology Partner",
-
-    "Software Company India",
-    "Web Development Company India",
-    "AI Company India",
-    "IT Services Company",
+    "SaaS Development",
+    "India Software Company",
   ],
 
   authors: [
     {
       name: "Mohammed Khan",
-      url: "https://stackratechnologies.mohammedkhan.dev/",
+      url: "https://stackratechnologies.com",
     },
   ],
 
@@ -79,7 +45,7 @@ export const metadata: Metadata = {
   category: "Technology",
 
   alternates: {
-    canonical: "https://stackratechnologies.mohammedkhan.dev/",
+    canonical: "https://stackratechnologies.com",
   },
 
   robots: {
@@ -95,36 +61,29 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title:
-      "STACKRA TECHNOLOGIES | Software, Web Development & AI Solutions",
+    title: "STACKRA TECHNOLOGIES | Software & AI Development Company",
     description:
-      "Building scalable websites, AI applications, SaaS products, and custom software solutions.",
-    url: "https://stackratechnologies.mohammedkhan.dev/",
+      "We build scalable websites, SaaS platforms, AI applications, and custom software solutions.",
+    url: "https://stackratechnologies.com",
     siteName: "STACKRA TECHNOLOGIES",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://stackratechnologies.com/logo/logo5.png",
+        width: 1200,
+        height: 630,
+        alt: "STACKRA TECHNOLOGIES",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
     title: "STACKRA TECHNOLOGIES",
-    description:
-      "Software, Web Development & AI Solutions Company",
+    description: "Software & AI Development Company in India",
+    images: ["https://stackratechnologies.com/logo/logo5.png"],
   },
-  other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "STACKRA TECHNOLOGIES",
-      url: "https://stackratechnologies.mohammedkhan.dev",
-      logo: "https://stackratechnologies.mohammedkhan.dev/logo/logo5.png",
-      sameAs: [
-        "https://www.instagram.com/stackra_technologies",
-        "https://www.linkedin.com/company/stackra-technologies",
-        "https://github.com/MohammedKhan-star"
-      ]
-    })
-  }
 };
 
 export const viewport: Viewport = {
@@ -144,10 +103,39 @@ export default function RootLayout({
         suppressHydrationWarning
         className="bg-slate-50 text-slate-900 antialiased"
       >
+        {/* 🔥 Organization Schema (SEO POWER BOOST) */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "STACKRA TECHNOLOGIES",
+              url: "https://stackratechnologies.com",
+              logo: "https://stackratechnologies.com/logo/logo5.png",
+              founder: {
+                "@type": "Person",
+                name: "Mohammed Khan",
+              },
+              sameAs: [
+                "https://www.instagram.com/stackra_technologies",
+                "https://www.linkedin.com/company/stackra-technologies",
+                "https://github.com/MohammedKhan-star",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                availableLanguage: ["English", "Hindi"],
+              },
+            }),
+          }}
+        />
+
         <Navbar />
-        <main className="min-h-screen pt-4">
-          {children}
-        </main>
+
+        <main className="min-h-screen pt-4">{children}</main>
       </body>
     </html>
   );

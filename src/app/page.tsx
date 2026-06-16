@@ -108,7 +108,7 @@ const SERVICES = [ { title: "Portfolio Websites", icon: <Store />, desc: "Modern
 const PROJECTS = [
 {title:"Portfolio",image:"/projects/Potfolio.png",live:"https://mohammedkhan.dev/",tech:["Next.js","SEO"]},
 {title:"School Result Portal",image:"/projects/Schoolresultportal.png",live:"https://tssscpreresult.vercel.app/",tech:["Next.js","SEO"]},
-{title:"Business Landing Page",image:"/projects/Businesslandingpage.png",live:"https://projectworkstudio.mohammedkhan.dev/",tech:["Next.js","SEO"]},
+{title:"Business Landing Page",image:"/projects/Businesslandingpage.png",live:"https://stackratechnologies.com/",tech:["Next.js","SEO"]},
 {title:"AI Food Delivery",image:"/projects/food.png",live:"https://food-delivery-app-zomoto.vercel.app/",tech:["MERN","AI"]},
 {title:"Learning Management System",image:"/projects/LMS5.png",live:"https://lms-sandy-six.vercel.app/",tech:["MERN"]},
 {title:"AI E-Commerce",image:"/projects/AI Ecommerce25.png",live:"https://gocart-xqlp.vercel.app/",tech:["Next.js","AI"]},
@@ -247,9 +247,7 @@ export default function LandingPage() {
       <Link href="#contact" className="border border-white px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">
         Free Proposal
       </Link>
-      //social media link
-
-    </div>
+  </div>
   </div>
 
 </section>
@@ -281,11 +279,11 @@ export default function LandingPage() {
         viewport={{ once: true }}
       >
         <h2 className="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-6">
-          About STACKRA TECHNOLOGIES
+          About 
         </h2>
 
         <p className="text-slate-700 text-lg leading-relaxed mb-5">
-           is a modern <span className="font-semibold text-slate-900">Software & AI Solutions company</span> focused on building scalable, high-performance digital products.
+           STACKRA TECHNOLOGIES is a modern <span className="font-semibold text-slate-900">Software & AI Solutions company</span> focused on building scalable, high-performance digital products.
         </p>
 
         <p className="text-slate-700 text-lg leading-relaxed mb-5">
@@ -360,7 +358,7 @@ export default function LandingPage() {
           target="_blank"
           className="mt-6 block text-center bg-indigo-600 text-white py-2 rounded-xl text-sm font-medium hover:bg-indigo-700 transition"
         >
-          Contact Founder
+          Contact
         </a>
       </motion.div>
     </div>
@@ -492,8 +490,10 @@ className="w-full max-w-5xl mx-auto h-[700px] rounded-3xl shadow"
 
 <div className="flex justify-center gap-6 mb-6">
 
-<a href="https://github.com/MohammedKhan-star"><Github/></a>
+
 <a href="https://www.linkedin.com/search/results/all/?keywords=STACKRA%20TECHNOLOGIES%20Software%20Web%20%26%20AI%20Solutions&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A112681182&position=0"><Linkedin/></a>
+<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
+<a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
 <a href="https://www.instagram.com/stackra_technologies"><Instagram/></a>
 
 
