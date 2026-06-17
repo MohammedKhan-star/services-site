@@ -64,14 +64,14 @@ function Navbar() {
             className="rounded-xl object-cover"
             priority
           />
-          <div className="hidden md:block">
-            <span className="text-2xl font-bold tracking-tight text-gray-900">
-              STACKRA
-            </span>
-            <span className="text-2xl font-bold tracking-tight text-indigo-600">
-              TECHNOLOGIES
-            </span>
-          </div>
+         <div className="hidden md:block">
+  <span className="text-3xl font-bold tracking-tighter text-slate-950">
+    STACKRA
+  </span>
+  <span className="text-3xl font-bold tracking-tighter bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+    TECHNOLOGIES
+  </span>
+</div>
         </Link>
 
         {/* Desktop Menu */}
@@ -362,71 +362,118 @@ export default function Home() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/bg/hero-bg.png"
-            alt="Modern technology background"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/10 to-white/10" />
-        </div>
+     <section className="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
+  {/* Background */}
+  <div className="absolute inset-0">
+    <Image
+      src="/bg/hero-bg-10.png"
+      alt="Modern technology background"
+      fill
+      priority
+      className="object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+    <div className="absolute inset-0 bg-[radial-gradient(at_center,#4f46e510_0%,transparent_50%)]" />
+  </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+    >
+      {/* Badge / Logo */}
+      <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6">
+        <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+        <span className="text-sm font-medium text-white tracking-widest">STACKRA TECHNOLOGIES</span>
+      </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
-              Digital Excellence.<br />
-              Delivered.
-            </h1>
+      {/* Main Headline */}
+      <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6 text-white">
+        Digital Excellence
+        <br />
+        <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          Delivered
+        </span>
+      </h1>
 
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
-              We craft high-performance websites, SaaS platforms, and AI-powered solutions that help businesses scale in the digital age.
-            </p>
-          </motion.div>
+      {/* Subtitle */}
+      <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed">
+        We craft high-performance websites, SaaS platforms, and AI-powered solutions that help ambitious businesses scale in the digital age.
+      </p>
+    </motion.div>
 
-          {/* Typing Effect */}
-          <motion.div
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            className="h-20 flex items-center justify-center mb-10"
-          >
-            <p className="text-2xl md:text-3xl font-medium text-white/90 min-h-[3.5rem]">
-              {text}
-              <span className="animate-pulse">|</span>
-            </p>
-          </motion.div>
+    {/* Typing Effect */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className="h-20 flex items-center justify-center mb-12"
+    >
+      <p className="text-2xl md:text-3xl font-medium text-white/90 min-h-[3.5rem] tracking-tight">
+        {text}
+        <span className="animate-pulse text-indigo-400">|</span>
+      </p>
+    </motion.div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#projects"
-              className="bg-white text-gray-900 hover:bg-gray-100 px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95"
-            >
-              View Our Work
-            </Link>
-            <a
-              href="#contact"
-              className="border border-white/70 hover:bg-white/10 px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95"
-            >
-              Get Your Free Proposal
-            </a>
-          </div>
+    {/* CTA Buttons */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, duration: 0.6 }}
+      className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+    >
+      <Link
+        href="#projects"
+        className="group bg-white text-gray-950 hover:bg-white/90 px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95 flex items-center justify-center gap-2"
+      >
+        View Our Work
+        <span className="group-hover:translate-x-1 transition">→</span>
+      </Link>
 
-          <div className="mt-16 flex justify-center gap-8 text-sm opacity-75">
-            <div>Next.js</div>
-            <div>MERN</div>
-            <div>AI Integration</div>
-            <div>Enterprise Ready</div>
-          </div>
-        </div>
-      </section>
+      <a
+        href="#contact"
+        className="group border border-white/60 hover:bg-white/10 text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all active:scale-95 backdrop-blur-sm"
+      >
+        Get Your Free Proposal
+      </a>
+    </motion.div>
+
+    {/* Trust Signals / Tech Stack */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.1 }}
+      className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/70"
+    >
+      <div className="flex items-center gap-2">
+        <span className="text-emerald-400">●</span> Next.js
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-emerald-400">●</span> MERN
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-emerald-400">●</span> AI Integration
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-emerald-400">●</span> Enterprise Ready
+      </div>
+    </motion.div>
+  </div>
+
+  {/* Scroll Indicator */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: [0.3, 1, 0.3] }}
+    transition={{ duration: 2, repeat: Infinity }}
+    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 text-sm flex flex-col items-center gap-1"
+  >
+    Scroll to explore
+    <div className="w-px h-8 bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+  </motion.div>
+</section>
 
       {/* ABOUT SECTION */}
       <section id="about" className="py-28 bg-white relative">
