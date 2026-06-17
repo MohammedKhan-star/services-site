@@ -524,7 +524,7 @@ export default function Home() {
                 className="rounded-2xl mb-8"
               />
               <h3 className="text-2xl font-semibold mb-1">Mohammed Khan</h3>
-              <p className="text-indigo-600 font-medium">Founder & Principal Engineer</p>
+              <p className="text-indigo-600 font-medium">Founder & Full Stack Software Engineer</p>
 
               <p className="mt-6 text-gray-600 leading-relaxed">
                 Passionate about building technology that matters. With deep expertise in full-stack development and modern web architecture, I lead every project with a focus on quality, performance, and long-term business impact.
