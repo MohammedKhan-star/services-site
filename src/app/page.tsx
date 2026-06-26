@@ -456,7 +456,7 @@ export default function Home() {
                 <p className="mt-6 text-gray-600 leading-relaxed">
                   Mahboob Khan serves as Chairman, bringing practical business wisdom and a strong commitment to values-driven leadership. His guidance ensures Stackra Technologies stays grounded in integrity while pursuing meaningful, long-term impact through technology.
                 </p>
-                <a href="https://wa.me/8978110989" target="_blank" className="mt-8 inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">
+                <a href="https://wa.me/+918978110989" target="_blank" className="mt-8 inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">
                   <MessageCircle className="w-5 h-5" /> Schedule a Call
                 </a>
               </motion.div>
