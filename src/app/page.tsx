@@ -34,75 +34,24 @@ const roles = [
 
 /* ================= ABOUT VIDEO COMPONENT ================= */
 function AboutVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isPlaying) {
-      video.pause();
-    } else {
-      video.play().catch(console.error);
-    }
-  };
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-
-    video.addEventListener("play", handlePlay);
-    video.addEventListener("pause", handlePause);
-
-    return () => {
-      video.removeEventListener("play", handlePlay);
-      video.removeEventListener("pause", handlePause);
-    };
-  }, []);
+  const videoId = "JfTs7q8JhEs";
 
   return (
     <div className="relative bg-gray-900 rounded-3xl h-[420px] overflow-hidden shadow-2xl group">
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/about-video3.mp4"
-        autoPlay
-        loop
-        playsInline
-        preload="auto"
-      >
-        Your browser does not support the video tag.
-      </video>
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
+        title="Stackra Technologies Launch"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="absolute inset-0 w-full h-full"
+      />
 
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
-
-      {/* Custom Play/Pause Button */}
-      <button
-        onClick={togglePlay}
-        className="absolute bottom-6 right-6 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow-xl backdrop-blur-md transition-all hover:bg-white hover:scale-105 active:scale-95"
-        aria-label={isPlaying ? "Pause video" : "Play video"}
-      >
-        {isPlaying ? (
-          // Pause Icon
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.75}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m4-6v6" />
-          </svg>
-        ) : (
-          // Play Icon
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 4.01V8" />
-          </svg>
-        )}
-      </button>
     </div>
   );
 }
+
 
 /* ================= NAVBAR ================= */
 function Navbar() {
