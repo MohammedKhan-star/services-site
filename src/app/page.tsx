@@ -69,9 +69,8 @@ function AboutVideo() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src="/videos/about-video.mp4"
+        src="/videos/about-video3.mp4"
         autoPlay
-       
         loop
         playsInline
         preload="auto"
