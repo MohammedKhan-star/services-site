@@ -25,6 +25,7 @@ import { motion } from "framer-motion";
 
 
 
+
 const roles = [
   "Building powerful websites that drive business growth",
   "Transforming ideas into high-performance digital solutions",
@@ -577,7 +578,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <Image src="/logo/logo5.png" alt="STACKRA TECHNOLOGIES" width={50} height={50} className="rounded-xl" />
+              <Image src="/logo/logo6.png" alt="STACKRA TECHNOLOGIES" width={50} height={50} className="rounded-xl" />
               <span className="text-white font-bold text-2xl tracking-tight">STACKRA TECHNOLOGIES</span>
             </div>
             <p className="max-w-md">Premium web development and AI solutions company based in India. Building the future of digital experiences.</p>
