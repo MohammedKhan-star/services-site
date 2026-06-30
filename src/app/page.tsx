@@ -23,6 +23,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+
+
 const roles = [
   "Building powerful websites that drive business growth",
   "Transforming ideas into high-performance digital solutions",
@@ -158,39 +160,81 @@ function Navbar() {
 const SERVICES = [
   {
     title: "Portfolio & Personal Websites",
-    icon: <Store className="w-8 h-8" />,
+    image: "/services/portfolio.jpg",
     desc: "Stunning, fast-loading portfolio websites that showcase your work and attract opportunities.",
-    points: ["Custom Modern Design", "Project Showcase", "Resume Integration", "Contact & Inquiry Forms", "Mobile-First Responsive", "SEO Optimized"],
+    points: [
+      "Custom Modern Design",
+      "Project Showcase",
+      "Resume Integration",
+      "Contact & Inquiry Forms",
+      "Mobile-First Responsive",
+      "SEO Optimized",
+    ],
   },
   {
     title: "Business & Corporate Websites",
-    icon: <Users className="w-8 h-8" />,
+    image: "/services/business.jpg",
     desc: "Professional websites designed to convert visitors into loyal customers.",
-    points: ["Premium UI/UX Design", "Advanced SEO Optimization", "Google Maps & Location", "WhatsApp Integration", "Lead Generation Forms", "Lightning Fast Performance"],
+    points: [
+      "Premium UI/UX Design",
+      "Advanced SEO Optimization",
+      "Google Maps & Location",
+      "WhatsApp Integration",
+      "Lead Generation Forms",
+      "Lightning Fast Performance",
+    ],
   },
   {
     title: "Education & School Portals",
-    icon: <GraduationCap className="w-8 h-8" />,
+    image: "/services/education.jpg",
     desc: "Comprehensive digital platforms for schools, colleges, and training institutes.",
-    points: ["Online Admissions System", "Student & Course Management", "Result & Dashboard Portals", "Admin Control Panel", "Secure Authentication", "Mobile Responsive"],
+    points: [
+      "Online Admissions System",
+      "Student & Course Management",
+      "Result & Dashboard Portals",
+      "Admin Control Panel",
+      "Secure Authentication",
+      "Mobile Responsive",
+    ],
   },
   {
     title: "Restaurant & Food Delivery",
-    icon: <Utensils className="w-8 h-8" />,
+    image: "/services/restaurant.jpg",
     desc: "Beautiful online presence for restaurants with digital menus and ordering systems.",
-    points: ["Digital Menu System", "Online Table Booking", "Food Ordering Integration", "Google Maps Integration", "WhatsApp Ordering", "Mobile Optimized"],
+    points: [
+      "Digital Menu System",
+      "Online Table Booking",
+      "Food Ordering Integration",
+      "Google Maps Integration",
+      "WhatsApp Ordering",
+      "Mobile Optimized",
+    ],
   },
   {
     title: "E-Commerce Solutions",
-    icon: <ShoppingCart className="w-8 h-8" />,
+    image: "/services/ecommerce.jpg",
     desc: "Full-featured online stores with secure payments and inventory management.",
-    points: ["Product Catalog Management", "Secure Payment Gateway", "Order Tracking System", "Advanced Admin Dashboard", "Multi-Vendor Ready", "SEO & Performance Optimized"],
+    points: [
+      "Product Catalog Management",
+      "Secure Payment Gateway",
+      "Order Tracking System",
+      "Advanced Admin Dashboard",
+      "Multi-Vendor Ready",
+      "SEO & Performance Optimized",
+    ],
   },
   {
     title: "Custom SaaS & Web Applications",
-    icon: <Code className="w-8 h-8" />,
+    image: "/services/custom-saas.jpg",
     desc: "Enterprise-grade custom software and SaaS platforms tailored to your needs.",
-    points: ["Next.js & MERN Stack", "Secure Authentication", "REST & GraphQL APIs", "Database Architecture", "Cloud Deployment", "AI/ML Integrations"],
+    points: [
+      "Next.js & MERN Stack",
+      "Secure Authentication",
+      "REST & GraphQL APIs",
+      "Database Architecture",
+      "Cloud Deployment",
+      "AI/ML Integrations",
+    ],
   },
 ];
 
@@ -416,31 +460,53 @@ export default function Home() {
 
       {/* SERVICES SECTION */}
       <section id="services" className="py-28 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="uppercase text-indigo-600 tracking-widest text-sm font-medium">EXPERTISE</div>
-            <h2 className="text-5xl font-bold mt-3">Services We Offer</h2>
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="text-center mb-16">
+      <div className="uppercase text-indigo-600 tracking-widest text-sm font-medium">
+        EXPERTISE
+      </div>
+      <h2 className="text-5xl font-bold mt-3">Services We OFFER</h2>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {SERVICES.map((service, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.05 }}
+          viewport={{ once: true }}
+          className="group flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white transition-all hover:border-indigo-200"
+        >
+          {/* Image Header */}
+          <div className="relative h-52 w-full overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service, index) => (
-              <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }} viewport={{ once: true }} className="bg-white p-10 rounded-3xl border border-gray-100 hover:border-indigo-200 transition-all group">
-                <div className="text-indigo-600 mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-8">{service.desc}</p>
-                <ul className="space-y-3">
-                  {service.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700">
-                      <Check className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          {/* Content */}
+          <div className="flex flex-1 flex-col p-10">
+            <h3 className="mb-4 text-2xl font-semibold">{service.title}</h3>
+            <p className="mb-8 text-gray-600">{service.desc}</p>
+
+            <ul className="mt-auto space-y-3">
+              {service.points.map((point, i) => (
+                <li key={i} className="flex items-start gap-3 text-gray-700">
+                  <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-500" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+      
 
       {/* PROJECTS SECTION */}
       <section id="projects" className="py-28 bg-white">
@@ -472,6 +538,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
 
       {/* CONTACT SECTION */}
       <section id="contact" className="py-28 bg-white">
@@ -498,8 +565,12 @@ export default function Home() {
               Open in new tab
             </a>
           </p>
+           
         </div>
       </section>
+
+
+
 
       {/* FOOTER */}
       <footer className="bg-gray-950 text-gray-400 py-20">
