@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     siteName: "STACKRA TECHNOLOGIES",
     images: [
       {
-        url: "https://stackratechnologies.com/logo/logo5.png",
+        url: "https://stackratechnologies.com/logo/logo6.png",
         width: 1200,
         height: 630,
         alt: "STACKRA TECHNOLOGIES - Software & AI Company",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "STACKRA TECHNOLOGIES",
     description: "Top Software & AI Development Company in India",
-    images: ["https://stackratechnologies.com/logo/logo5.png"],
+    images: ["https://stackratechnologies.com/logo/logo6.png"],
     creator: "@stackra_technologies",
   },
 
@@ -128,7 +128,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   "@type": "Organization",
                   name: "STACKRA TECHNOLOGIES",
                   url: "https://stackratechnologies.com",
-                  logo: "https://stackratechnologies.com/logo/logo5.png",
+                  logo: "https://stackratechnologies.com/logo/logo6.png",
                   founder: {
                     "@type": "Person",
                     name: "Mohammed Khan",
@@ -140,6 +140,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     "https://www.facebook.com/stackratechnologies",
                     "https://twitter.com/stackra_technologies",
                     "https://www.youtube.com/@stackratechnologies",
+                    "https://www.tiktok.com/@stackratechnologies",
+                    "https://www.pinterest.com/stackratechnologies/",
+                    "https://www.tumblr.com/stackratechnologies",
+                    "https://www.snapchat.com/add/stackratechnologies",
+                    "https://www.mohammedkhan.dev/"
+                
+                  ],
+                  contactPoints: [
+                    {
+                      "@type": "ContactPoint",
+                      contactType: "customer support",
+                      availableLanguage: ["en", "hi"],
+                      email: "stackratechnologies@gmail.com", // Add real email
+                    },
                   ],
                   contactPoint: {
                     "@type": "ContactPoint",
