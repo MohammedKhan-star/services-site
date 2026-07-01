@@ -81,7 +81,7 @@ function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo/logo5.png"
+            src="/logo/logo6.png"
             alt="STACKRA TECHNOLOGIES Logo"
             width={48}
             height={48}
