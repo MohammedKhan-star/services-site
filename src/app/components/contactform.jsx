@@ -57,9 +57,9 @@ export default function ContactForm() {
       icon: MapPin,
       title: 'Location',
       value: 'Hyderabad, Telangana, India',
-      href: 'https://share.google/I0KvIzDf62lo5O5kW'
+      href: 'https://maps.app.goo.gl/X7AvWUirH3k2Gmtf8'
     },
-    {
+    {   
       icon: Clock,
       title: 'Response Time',
       value: 'Within 24 Hours',
