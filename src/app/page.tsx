@@ -22,6 +22,7 @@ import {
   Phone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import ContactForm from "./components/contactform"
 
 
 
@@ -539,7 +540,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+      <ContactForm/>
 
       {/* CONTACT SECTION */}
       <section id="contact" className="py-28 bg-white">
